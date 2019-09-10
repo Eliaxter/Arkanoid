@@ -9,6 +9,7 @@ const int posInitialBallX = screenWidth / 2;
 const int posInitialBallY = 430;
 const int ballRadius = 10;
 
+bool ballOnRectangle = true;
 bool startKey = false;
 
 Rectangle player1;
@@ -42,10 +43,19 @@ int main(void)
 	{
 		// Update
 		//----------------------------------------------------------------------------------
-		if (IsKeyDown(KEY_RIGHT)) player1.x += 7.0f;
-		if (IsKeyDown(KEY_LEFT)) player1.x -= 7.0f;
+		if (IsKeyDown(KEY_RIGHT))
+		{
+			player1.x += 7.0f;
+		}	
+		if (IsKeyDown(KEY_LEFT))
+		{
+			player1.x -= 7.0f;
+		}
 
-		ballPosition.x = player1.x + 75;
+		if (ballOnRectangle)
+		{
+			ballPosition.x = player1.x + 75;
+		}
 	
 		// Draw
 		//----------------------------------------------------------------------------------
@@ -64,11 +74,18 @@ int main(void)
 		if (startKey == true)
 		{
 			ballPosition.y -= speedBall.y;
+			ballOnRectangle = false;
 		}
 
 		//Conditions
-		if (((ballPosition.x + ballRadius) >= screenWidth) || ((ballPosition.x - ballRadius) <= 0)) speedBall.x *= -1;
-		if ((ballPosition.y - ballRadius) <= 0) speedBall.y *= -1;
+		if (((ballPosition.x + ballRadius) >= screenWidth) || ((ballPosition.x - ballRadius) <= 0))
+		{
+			speedBall.x *= -1;
+		}
+		if ((ballPosition.y - ballRadius) <= 0) 
+		{
+			speedBall.y *= -1;
+		} 
 		if ((ballPosition.y + ballRadius) >= screenHeight)
 		{
 			speedBall.x = 0;
