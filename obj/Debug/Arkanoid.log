@@ -1,3 +1,4 @@
 ﻿  Source.cpp
-c:\users\administrador\desktop\arkanoid\src\source.cpp(58): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-  Arkanoid.vcxproj -> C:\Users\Administrador\Desktop\Arkanoid\bin\Debug\Arkanoid.exe
+c:\users\administrador\desktop\ark\arkanoid\src\source.cpp(58): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  LINK : no se encontró C:\Users\Administrador\Desktop\Ark\Arkanoid\bin\Debug\Arkanoid.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+  Arkanoid.vcxproj -> C:\Users\Administrador\Desktop\Ark\Arkanoid\bin\Debug\Arkanoid.exe
