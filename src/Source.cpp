@@ -8,14 +8,26 @@ const int player1Height = 20;
 const int posInitialBallX = screenWidth / 2;
 const int posInitialBallY = 430;
 const int ballRadius = 10;
+const int lineOfBricks = 5;
+const int bricksPerLine = 20;
 
 bool ballOnRectangle = true;
 bool startKey = false;
 
+int initialDownPosition = 50;
+
 Rectangle player1;
 Vector2 ballPosition;
 Vector2 speedBall;
+Vector2 brickSize;
 
+struct Brick 
+{
+	Vector2 pos;
+	bool active;
+};
+
+Brick brick[lineOfBricks][bricksPerLine] = {0};
 
 int main(void)
 {
@@ -33,6 +45,21 @@ int main(void)
 	player1.y = posInitialPlayer1Y;
 	player1.width = player1Width;
 	player1.height = player1Height;
+
+	//Init Bricks
+
+	brickSize.x = screenWidth / bricksPerLine;
+	brickSize.y = 40;
+
+	for (int i = 0; i < lineOfBricks; i++)
+	{
+		for (int j = 0; j < bricksPerLine; j++)
+		{
+			brick[i][j].pos.x = j*brickSize.x + brickSize.x/2;
+			brick[i][j].pos.y = i * brickSize.y + initialDownPosition;
+			brick[i][j].active = true;
+		}
+	}
 
 	SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
 	//--------------------------------------------------------------------------------------
@@ -92,6 +119,27 @@ int main(void)
 			ballPosition.y = -100;
 			speedBall.y = 0;
 		}
+
+		//Draw Rectangles
+
+		for (int i = 0; i < lineOfBricks; i++) 
+		{
+			for (int j = 0; j < bricksPerLine; j++) 
+			{
+				if (brick[i][j].active == true) 
+				{
+					if ((i + j) % 2 == 0)
+					{
+						DrawRectangle(brick[i][j].pos.x - brickSize.x/2, brick[i][j].pos.y - brickSize.y/2, brickSize.x, brickSize.y, GRAY);
+					}
+					else 
+					{
+						DrawRectangle(brick[i][j].pos.x - brickSize.x / 2, brick[i][j].pos.y - brickSize.y / 2, brickSize.x, brickSize.y, DARKGRAY);
+					}
+				}
+			}
+		}
+
 		EndDrawing();
 		//----------------------------------------------------------------------------------
 	}
