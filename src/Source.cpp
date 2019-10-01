@@ -38,8 +38,8 @@ int main(void)
 
 	ballPosition.x = posInitialBallX;
 	ballPosition.y = posInitialBallY;
-	speedBall.x = 10.0f;
-	speedBall.y = 10.0f;
+	speedBall.x = 400.0f;
+	speedBall.y = 400.0f;
 
 	player1.x = posInitialPlayer1X;
 	player1.y = posInitialPlayer1Y;
@@ -72,16 +72,25 @@ int main(void)
 		//----------------------------------------------------------------------------------
 		if (IsKeyDown(KEY_RIGHT))
 		{
-			player1.x += 7.0f;
+			player1.x += 500.0f * GetFrameTime();
 		}	
 		if (IsKeyDown(KEY_LEFT))
 		{
-			player1.x -= 7.0f;
+			player1.x -= 500.0f * GetFrameTime();
 		}
 
 		if (ballOnRectangle)
 		{
 			ballPosition.x = player1.x + 75;
+		}
+
+		if (player1.x + player1.width >= screenWidth)
+		{
+			player1.x = screenWidth - player1.width;
+		}
+		if (player1.x <= 0)
+		{
+			player1.x = 1;
 		}
 	
 		// Draw
@@ -100,7 +109,7 @@ int main(void)
 		}
 		if (startKey == true)
 		{
-			ballPosition.y -= speedBall.y;
+			ballPosition.y -= speedBall.y * GetFrameTime();
 			ballOnRectangle = false;
 		}
 
