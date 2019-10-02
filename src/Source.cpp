@@ -11,7 +11,7 @@ const int posInitialBallX = screenWidth / 2;
 const int posInitialBallY = 430;
 const int ballRadius = 10;
 const int lineOfBricks = 5;
-const int brickSize = 21;
+const int brickSize = 35;
 
 bool ballOnRectangle = true;
 bool startKey = false;
@@ -55,21 +55,21 @@ int main(void)
 
 	for (int i = 0;i < brickSize; i++)
 	{
-		bricks[i].x = 20.0f + 100.0f * (i % 7) + 10.0f * (i % 7);
-		bricks[i].y = 80.0f + 100.0f * (i / 7) + 10.0f * (i / 7);
-		bricks[i].width = 30.0f;
-		bricks[i].height = 10.0f;
+		bricks[i].x = 20.0f + 100.0f * (i % 7) + 20.0f * (i % 7);
+		bricks[i].y = 70.0f + 60.0f * (i / 7) + 5.0f * (i / 7);
+		bricks[i].width = 50.0f;
+		bricks[i].height = 20.0f;
+		bricks[i].lifes = GetRandomValue(1, 5);
 	}
 
 	SetTargetFPS(60);
-
 
 	while (!WindowShouldClose())
 	{
 		if (IsKeyDown(KEY_RIGHT))
 		{
 			player1.x += 500.0f * GetFrameTime();
-		}	
+		}
 		if (IsKeyDown(KEY_LEFT))
 		{
 			player1.x -= 500.0f * GetFrameTime();
@@ -88,7 +88,7 @@ int main(void)
 		{
 			player1.x = 1;
 		}
-	
+
 		BeginDrawing();
 
 		ClearBackground(BLACK);
@@ -115,7 +115,7 @@ int main(void)
 		if ((ballPosition.y - ballRadius) <= minScreenHeight)
 		{
 			speedBall.y *= -1.0f;
-		} 
+		}
 		if ((ballPosition.y - ballRadius) > screenHeight)
 		{
 			startKey = false;
@@ -135,7 +135,26 @@ int main(void)
 
 		for (int i = 0; i < brickSize; i++)
 		{
-			DrawRectangle(bricks[i].x, bricks[i].y, bricks[i].width, bricks[i].height, GRAY);
+			if (bricks[i].lifes == 1)
+			{
+				DrawRectangle(bricks[i].x, bricks[i].y, bricks[i].width, bricks[i].height, WHITE);
+			}
+			if (bricks[i].lifes == 2) 
+			{
+				DrawRectangle(bricks[i].x, bricks[i].y, bricks[i].width, bricks[i].height, GREEN);
+			}
+			if (bricks[i].lifes == 3)
+			{
+				DrawRectangle(bricks[i].x, bricks[i].y, bricks[i].width, bricks[i].height, PURPLE);
+			}
+			if (bricks[i].lifes == 4)
+			{
+				DrawRectangle(bricks[i].x, bricks[i].y, bricks[i].width, bricks[i].height, GRAY);
+			}
+			if (bricks[i].lifes == 5)
+			{
+				DrawRectangle(bricks[i].x, bricks[i].y, bricks[i].width, bricks[i].height, BLUE);
+			}
 		}
 
 		//Collisions
@@ -143,12 +162,16 @@ int main(void)
 		{
 			if (CheckCollisionCircleRec(ballPosition, ballRadius, bricks[i]))
 			{
+				bricks[i].lifes -= 1;
 				speedBall.y *= -1.0f;
 				speedBall.x *= -1.0f;
 			}
+			if (bricks[i].lifes == 0)
+			{
+				bricks[i].x = -500.0f;
+				bricks[i].y = -500.0f;
+			}
 		}
-		
-
 	EndDrawing();
 	}
 	CloseWindow();
