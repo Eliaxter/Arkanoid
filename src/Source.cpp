@@ -1,6 +1,8 @@
 #include "raylib.h"
 const int screenWidth = 800;
 const int screenHeight = 450;
+const int minScreenWidth = 0;
+const int minScreenHeight = 0;
 const int posInitialPlayer1X = 330;
 const int posInitialPlayer1Y = 440;
 const int player1Width = 150;
@@ -9,37 +11,40 @@ const int posInitialBallX = screenWidth / 2;
 const int posInitialBallY = 430;
 const int ballRadius = 10;
 const int lineOfBricks = 5;
-const int bricksPerLine = 20;
+const int brickSize = 21;
 
 bool ballOnRectangle = true;
 bool startKey = false;
 
-int initialDownPosition = 50;
-
 Rectangle player1;
 Vector2 ballPosition;
 Vector2 speedBall;
-Vector2 brickSize;
+
+Rectangle bricks[brickSize] = {0};
 
 struct Brick 
 {
 	Vector2 pos;
 	bool active;
+	int life;
 };
 
-Brick brick[lineOfBricks][bricksPerLine] = {0};
+enum GameState 
+{
+	Menu,
+	Game,
+	Lose
+};
+
+GameState state;
 
 int main(void)
 {
-	// Initialization
-	//--------------------------------------------------------------------------------------
-
 	InitWindow(screenWidth, screenHeight, "Arkanoid Elias");
-
 	ballPosition.x = posInitialBallX;
 	ballPosition.y = posInitialBallY;
-	speedBall.x = 400.0f;
-	speedBall.y = 400.0f;
+	speedBall.x = 600.0f;
+	speedBall.y = 600.0f;
 
 	player1.x = posInitialPlayer1X;
 	player1.y = posInitialPlayer1Y;
@@ -48,28 +53,19 @@ int main(void)
 
 	//Init Bricks
 
-	brickSize.x = screenWidth / bricksPerLine;
-	brickSize.y = 40;
-
-	for (int i = 0; i < lineOfBricks; i++)
+	for (int i = 0;i < brickSize; i++)
 	{
-		for (int j = 0; j < bricksPerLine; j++)
-		{
-			brick[i][j].pos.x = j*brickSize.x + brickSize.x/2;
-			brick[i][j].pos.y = i * brickSize.y + initialDownPosition;
-			brick[i][j].active = true;
-		}
+		bricks[i].x = 20.0f + 100.0f * (i % 7) + 10.0f * (i % 7);
+		bricks[i].y = 80.0f + 100.0f * (i / 7) + 10.0f * (i / 7);
+		bricks[i].width = 30.0f;
+		bricks[i].height = 10.0f;
 	}
 
-	SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
-	//--------------------------------------------------------------------------------------
+	SetTargetFPS(60);
 
 
-	// Main game loop
-	while (!WindowShouldClose())    // Detect window close button or ESC key
+	while (!WindowShouldClose())
 	{
-		// Update
-		//----------------------------------------------------------------------------------
 		if (IsKeyDown(KEY_RIGHT))
 		{
 			player1.x += 500.0f * GetFrameTime();
@@ -93,13 +89,11 @@ int main(void)
 			player1.x = 1;
 		}
 	
-		// Draw
-		//----------------------------------------------------------------------------------
 		BeginDrawing();
 
 		ClearBackground(BLACK);
 
-		DrawText("move the ball with arrow keys", 10, 10, 20, DARKGRAY);
+		DrawText("move the player with arrow keys", 10, 10, 20, DARKGRAY);
 		DrawCircleV(ballPosition, ballRadius, WHITE);
 		DrawRectangle(player1.x, player1.y, player1.width, player1.height, WHITE);
 
@@ -114,49 +108,50 @@ int main(void)
 		}
 
 		//Conditions
-		if (((ballPosition.x + ballRadius) >= screenWidth) || ((ballPosition.x - ballRadius) <= 0))
+		if (((ballPosition.x + ballRadius) >= screenWidth) || ((ballPosition.x - ballRadius) <= minScreenWidth))
 		{
-			speedBall.x *= -1;
+			speedBall.x *= -1.0f;
 		}
-		if ((ballPosition.y - ballRadius) <= 0) 
+		if ((ballPosition.y - ballRadius) <= minScreenHeight)
 		{
-			speedBall.y *= -1;
+			speedBall.y *= -1.0f;
 		} 
-		if ((ballPosition.y + ballRadius) >= screenHeight)
+		if ((ballPosition.y - ballRadius) > screenHeight)
 		{
-			speedBall.x = 0;
-			ballPosition.y = -100;
-			speedBall.y = 0;
+			startKey = false;
+			ballOnRectangle = true;
+			ballPosition.x = player1.x;
+			ballPosition.y = player1.y - player1.height + 10.0f;
 		}
-
-		//Draw Rectangles
-
-		for (int i = 0; i < lineOfBricks; i++) 
+		if ((ballPosition.y + ballRadius) >= screenHeight - player1.height)
 		{
-			for (int j = 0; j < bricksPerLine; j++) 
+			if (CheckCollisionCircleRec(ballPosition, ballRadius, player1))
 			{
-				if (brick[i][j].active == true) 
-				{
-					if ((i + j) % 2 == 0)
-					{
-						DrawRectangle(brick[i][j].pos.x - brickSize.x/2, brick[i][j].pos.y - brickSize.y/2, brickSize.x, brickSize.y, GRAY);
-					}
-					else 
-					{
-						DrawRectangle(brick[i][j].pos.x - brickSize.x / 2, brick[i][j].pos.y - brickSize.y / 2, brickSize.x, brickSize.y, DARKGRAY);
-					}
-				}
+				speedBall.y *= -1.0f;
 			}
 		}
 
-		EndDrawing();
-		//----------------------------------------------------------------------------------
-	}
+		//Draw Bricks
 
-	// De-Initialization
-	//--------------------------------------------------------------------------------------
-	CloseWindow();        // Close window and OpenGL context
-	//--------------------------------------------------------------------------------------
+		for (int i = 0; i < brickSize; i++)
+		{
+			DrawRectangle(bricks[i].x, bricks[i].y, bricks[i].width, bricks[i].height, GRAY);
+		}
+
+		//Collisions
+		for (int i = 0; i < brickSize; i++)
+		{
+			if (CheckCollisionCircleRec(ballPosition, ballRadius, bricks[i]))
+			{
+				speedBall.y *= -1.0f;
+				speedBall.x *= -1.0f;
+			}
+		}
+		
+
+	EndDrawing();
+	}
+	CloseWindow();
 
 	return 0;
 }
