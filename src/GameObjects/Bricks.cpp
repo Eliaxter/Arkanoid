@@ -2,6 +2,13 @@
 
 #include "raylib.h"
 
+const int screenWidth = 800;
+const int screenHeight = 450;
+const int minScreenWidth = 0;
+const int minScreenHeight = 0;
+
+Brick bricks[brickSize] = { 0 };
+
 void InitBricks()
 {
 	for (int i = 0; i < brickSize; i++)

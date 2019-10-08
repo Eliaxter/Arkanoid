@@ -13,7 +13,7 @@ struct Brick
 	int life;
 };
 
-Brick bricks[brickSize] = { 0 };
+extern Brick bricks[brickSize];
 
 void InitBricks();
 void DrawBricks();

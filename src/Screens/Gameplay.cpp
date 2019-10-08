@@ -2,9 +2,19 @@
 
 #include "raylib.h"
 
+#include "Global.h"
 #include "Ball.h"
 #include "Player.h"
 #include "Bricks.h"
+
+static const int screenWidth = 800;
+static const int screenHeight = 450;
+
+static Vector2 ballPosition;
+static Vector2 speedBall;
+
+static Brick bricks[brickSize] = { 0 };
+
 
 void DrawWindow()
 {
