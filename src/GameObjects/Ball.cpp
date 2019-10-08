@@ -2,6 +2,8 @@
 
 #include "raylib.h"
 
+#include "Global.h"
+
 static Vector2 ballPosition;
 static Vector2 speedBall;
 
