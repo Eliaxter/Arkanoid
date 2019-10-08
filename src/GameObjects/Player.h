@@ -3,11 +3,17 @@
 
 #include "raylib.h"
 
-const int posInitialPlayer1X = 330; //player
-const int posInitialPlayer1Y = 440; //player
-const int player1Width = 150; //player
-const int player1Height = 20; //player
+const int posInitialPlayer1X = 330;
+const int posInitialPlayer1Y = 440; 
+const int player1Width = 150;
+const int player1Height = 20;
 
-Rectangle player1; //player
+Rectangle player1;
+
+void InitPlayer();
+void SetPlayerSizes();
+void DrawPlayer();
+void CollisionBallWithPlayer();
+void LimitMove();
 
 #endif

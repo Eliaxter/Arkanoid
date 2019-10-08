@@ -212,7 +212,6 @@ typedef struct Rectangle {
     float width;
     float height;
 	Color color;
-	int lifes;
 } Rectangle;
 
 // Image type, bpp always RGBA (32bit)

@@ -3,11 +3,13 @@
 
 enum GameState
 {
-	Menu,
+	StartMenu,
 	Game,
 	Lose
 };
 
-GameState state;
+extern GameState state;
+
+void GameLoop();
 
 #endif

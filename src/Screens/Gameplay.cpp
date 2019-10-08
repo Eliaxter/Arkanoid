@@ -4,6 +4,24 @@
 
 #include "Ball.h"
 #include "Player.h"
+#include "Bricks.h"
+
+void DrawWindow()
+{
+	BeginDrawing();
+
+	ClearBackground(BLACK);
+}
+
+void InitWindow()
+{
+	InitWindow(screenWidth, screenHeight, "Arkanoid Elias");
+}
+
+void DrawTexts()
+{
+	DrawText("move the player with arrow keys", 10, 10, 20, DARKGRAY);
+}
 
 void PosBallOnRectangle()
 {
@@ -41,17 +59,55 @@ void CheckCollisionBallBricks()
 {
 	for (int i = 0; i < brickSize; i++)
 	{
-		if (CheckCollisionCircleRec(ballPosition, ballRadius, bricks[i]))
+		if (CheckCollisionCircleRec(ballPosition, ballRadius, bricks[i].rect))
 		{
-			bricks[i].lifes -= 1;
+			bricks[i].life -= 1;
 			speedBall.y *= -1.0f;
 			speedBall.x *= -1.0f;
 		}
-		if (bricks[i].lifes == 0)
+		if (bricks[i].life == 0)
 		{
-			bricks[i].x = -500.0f;
-			bricks[i].y = -500.0f;
+			bricks[i].rect.x = -500.0f;
+			bricks[i].rect.y = -500.0f;
 		}
 	}
 }
 
+void MovePlayer()
+{
+	if (IsKeyDown(KEY_RIGHT))
+	{
+		player1.x += 500.0f * GetFrameTime();
+	}
+	if (IsKeyDown(KEY_LEFT))
+	{
+		player1.x -= 500.0f * GetFrameTime();
+	}
+}
+
+void InitGame()
+{
+	InitPlayer();
+	InitBall();
+	SetPlayerSizes();
+	InitSpeedBall();
+}
+
+void Update()
+{
+	PosBallOnRectangle();
+	StartGame();
+	MovePlayer();
+	ResetBallOnRectangle();
+	CheckCollisionBallBricks();
+	CollisionBallWithPlayer();
+	WindowCollisions();
+	LimitMove();
+}
+
+void Draw()
+{
+	DrawBall();
+	DrawPlayer();
+	DrawBricks();
+}

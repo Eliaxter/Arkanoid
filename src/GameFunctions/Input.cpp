@@ -6,7 +6,6 @@
 
 void MovePlayer()
 {
-	//--input
 	if (IsKeyDown(KEY_RIGHT))
 	{
 		player1.x += 500.0f * GetFrameTime();
@@ -15,6 +14,5 @@ void MovePlayer()
 	{
 		player1.x -= 500.0f * GetFrameTime();
 	}
-	// --input
 }
 

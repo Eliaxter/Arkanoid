@@ -6,15 +6,16 @@
 const int lineOfBricks = 5;
 const int brickSize = 35;
 
-Rectangle bricks[brickSize] = { 0 };
 
 struct Brick
 {
-	Vector2 pos;
-	bool active;
+	Rectangle rect;
 	int life;
 };
 
+Brick bricks[brickSize] = { 0 };
+
 void InitBricks();
+void DrawBricks();
 
 #endif

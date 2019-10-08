@@ -9,7 +9,12 @@ const int posInitialBallX = screenWidth / 2;
 const int posInitialBallY = 430;
 const int ballRadius = 10;
 
-Vector2 ballPosition;
-Vector2 speedBall;
+extern Vector2 ballPosition;
+extern Vector2 speedBall;
+
+void InitBall();
+void InitSpeedBall();
+void DrawBall();
+void WindowCollisions();
 
 #endif

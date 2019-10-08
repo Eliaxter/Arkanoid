@@ -19,9 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\GameFunctions\Collision.cpp" />
-    <ClCompile Include="..\src\GameFunctions\Draw.cpp" />
-    <ClCompile Include="..\src\GameFunctions\Input.cpp" />
     <ClCompile Include="..\src\GameObjects\Ball.cpp" />
     <ClCompile Include="..\src\GameObjects\Bricks.cpp" />
     <ClCompile Include="..\src\GameObjects\Player.cpp" />
@@ -33,9 +30,6 @@
     <ClCompile Include="..\src\Screens\Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\GameFunctions\Collision.h" />
-    <ClInclude Include="..\src\GameFunctions\Draw.h" />
-    <ClInclude Include="..\src\GameFunctions\Input.h" />
     <ClInclude Include="..\src\GameObjects\Ball.h" />
     <ClInclude Include="..\src\GameObjects\Bricks.h" />
     <ClInclude Include="..\src\GameObjects\Player.h" />
@@ -112,7 +106,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\include;$(SolutionDir)src\Game\;$(SolutionDir)src\GameFunctions\;$(SolutionDir)src\Screens\;$(SolutionDir)src\GameObjects\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\include;$(SolutionDir)src\Game\;$(SolutionDir)src\GameFunctions\;$(SolutionDir)src\GameObjects\;$(SolutionDir)src\Screens\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -138,7 +132,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\include;$(SolutionDir)src\Game\;$(SolutionDir)src\GameFunctions\;$(SolutionDir)src\GameObjects\;$(SolutionDir)src\Screens\</AdditionalIncludeDirectories>
       <SupportJustMyCode>false</SupportJustMyCode>
     </ClCompile>
     <Link>

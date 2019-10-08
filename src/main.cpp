@@ -1,16 +1,6 @@
-#include "raylib.h"
+#include "Game.h"
 
-int main(void)
+void main()
 {
-
-	//--game
-	while (!WindowShouldClose())
-	{
-	EndDrawing();
-	} //--game
-	//--EndDrawing
-	CloseWindow();
-	//--EndDrawing
-
-	return 0;
+	GameLoop();
 }

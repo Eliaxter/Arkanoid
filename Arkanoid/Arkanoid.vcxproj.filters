@@ -21,15 +21,6 @@
     <ClCompile Include="..\src\Game\Global.cpp">
       <Filter>codefiles</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\GameFunctions\Collision.cpp">
-      <Filter>codefiles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\GameFunctions\Draw.cpp">
-      <Filter>codefiles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\GameFunctions\Input.cpp">
-      <Filter>codefiles</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\GameObjects\Ball.cpp">
       <Filter>codefiles</Filter>
     </ClCompile>
@@ -54,15 +45,6 @@
       <Filter>headers</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Game\Global.h">
-      <Filter>headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\GameFunctions\Collision.h">
-      <Filter>headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\GameFunctions\Draw.h">
-      <Filter>headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\GameFunctions\Input.h">
       <Filter>headers</Filter>
     </ClInclude>
     <ClInclude Include="..\src\GameObjects\Ball.h">
