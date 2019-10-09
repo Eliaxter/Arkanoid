@@ -13,16 +13,18 @@ GameState state = GameState::StartMenu;
 void GameLoop()
 {
 	InitWindow();
-	while (true)
+
+	while (!WindowShouldClose())
 	{
+		BeginDrawing();
+		ClearBackground(BLACK);
 		if (state == GameState::StartMenu)
 		{
 			Menu();
 		}
 		if (state == GameState::Game)
 		{
-			InitGame();
-			MovePlayer();
+			//MovePlayer();
 			Update();
 			Draw();
 		}
@@ -30,6 +32,7 @@ void GameLoop()
 		{
 			FinalMenu();
 		}
+		EndDrawing();
 	}
 	CloseWindow();
 }

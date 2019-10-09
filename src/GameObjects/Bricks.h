@@ -3,7 +3,7 @@
 
 #include "raylib.h"
 
-const int lineOfBricks = 5;
+extern const int lineOfBricks;
 const int brickSize = 35;
 
 

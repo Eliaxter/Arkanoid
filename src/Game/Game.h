@@ -5,7 +5,8 @@ enum GameState
 {
 	StartMenu,
 	Game,
-	Lose
+	Lose,
+	CloseAll
 };
 
 extern GameState state;

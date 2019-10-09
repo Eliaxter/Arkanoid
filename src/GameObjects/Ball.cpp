@@ -4,8 +4,8 @@
 
 #include "Global.h"
 
-static Vector2 ballPosition;
-static Vector2 speedBall;
+Vector2 ballPosition;
+Vector2 speedBall;
 
 const int minScreenWidth = 0;
 const int minScreenHeight = 0;
@@ -33,8 +33,13 @@ void WindowCollisions()
 	{
 		speedBall.x *= -1.0f;
 	}
-	if ((ballPosition.y - ballRadius) <= minScreenHeight)
+	if (ballPosition.y < ballRadius)
 	{
 		speedBall.y *= -1.0f;
 	}
+}
+
+void MoveBall()
+{
+	ballPosition.y -= speedBall.y * GetFrameTime();
 }

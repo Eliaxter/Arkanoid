@@ -11,8 +11,8 @@ void PosBallOnRectangle();
 void StartGame();
 void ResetBallOnRectangle();
 void CheckCollisionBallBricks();
-void MovePlayer();
 void InitGame();
+void MovePlayer();
 void Update();
 void Draw();
 

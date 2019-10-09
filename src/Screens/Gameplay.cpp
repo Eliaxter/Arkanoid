@@ -7,13 +7,13 @@
 #include "Player.h"
 #include "Bricks.h"
 
-static Vector2 ballPosition;
-static Vector2 speedBall;
-
-static Brick bricks[brickSize] = { 0 };
-
 bool ballOnRectangle = true;
 bool startKey = false;
+
+static float negativeSpeed = -1.0f;
+static int brickLifeDown = 1;
+static int brickDead = 0;
+static float teleportBrick = -500.0f;
 
 void DrawWindow()
 {
@@ -34,7 +34,7 @@ void DrawTexts()
 
 void PosBallOnRectangle()
 {
-	if (ballOnRectangle)
+	if (ballOnRectangle == true)
 	{
 		ballPosition.x = player1.x + 75;
 	}
@@ -48,7 +48,7 @@ void StartGame()
 	}
 	if (startKey == true)
 	{
-		ballPosition.y -= speedBall.y * GetFrameTime();
+		MoveBall();
 		ballOnRectangle = false;
 	}
 }
@@ -70,14 +70,14 @@ void CheckCollisionBallBricks()
 	{
 		if (CheckCollisionCircleRec(ballPosition, ballRadius, bricks[i].rect))
 		{
-			bricks[i].life -= 1;
-			speedBall.y *= -1.0f;
-			speedBall.x *= -1.0f;
+			bricks[i].life -= brickLifeDown;
+			speedBall.y *= negativeSpeed;
+			speedBall.x *= negativeSpeed;
 		}
-		if (bricks[i].life == 0)
+		if (bricks[i].life == brickDead)
 		{
-			bricks[i].rect.x = -500.0f;
-			bricks[i].rect.y = -500.0f;
+			bricks[i].rect.x = teleportBrick;
+			bricks[i].rect.y = teleportBrick;
 		}
 	}
 }
@@ -107,10 +107,10 @@ void Update()
 	PosBallOnRectangle();
 	StartGame();
 	MovePlayer();
+	WindowCollisions();
 	ResetBallOnRectangle();
 	CheckCollisionBallBricks();
 	CollisionBallWithPlayer();
-	WindowCollisions();
 	LimitMove();
 }
 

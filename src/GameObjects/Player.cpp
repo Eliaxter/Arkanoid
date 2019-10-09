@@ -3,10 +3,6 @@
 #include "Global.h"
 #include "Ball.h"
 
-static Vector2 ballPosition;
-static Vector2 speedBall;
-
-
 Rectangle player1;
 
 void InitPlayer()
@@ -28,7 +24,7 @@ void DrawPlayer()
 
 void CollisionBallWithPlayer()
 {
-	if ((ballPosition.y + ballRadius) >= screenHeight - player1.height)
+	if ((ballPosition.y + ballRadius) >= (screenHeight - player1.height))
 	{
 		if (CheckCollisionCircleRec(ballPosition, ballRadius, player1))
 		{

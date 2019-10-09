@@ -3,6 +3,10 @@
 #include "raylib.h"
 
 #include "Game.h"
+#include "Gameplay.h"
+#include "Player.h"
+#include "Ball.h"
+#include "Bricks.h"
 
 void DrawWindowMenu()
 {
@@ -22,6 +26,10 @@ void InputMenu()
 	if (IsKeyDown(KEY_ENTER))
 	{
 		state = GameState::Game;
+		InitGame();
+		InitPlayer();
+		InitBall();
+		InitBricks();
 	}
 	if (IsKeyDown(KEY_H))
 	{
@@ -29,15 +37,13 @@ void InputMenu()
 	}
 	if (IsKeyDown(KEY_ESCAPE))
 	{
-		CloseWindow();
+		state = GameState::CloseAll;
 	}
 }
 
 void Menu()
 {
-	BeginDrawing();
 	DrawWindowMenu();
 	DrawTextMenu();
 	InputMenu();
-	EndDrawing();
 }

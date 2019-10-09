@@ -16,5 +16,6 @@ void InitBall();
 void InitSpeedBall();
 void DrawBall();
 void WindowCollisions();
+void MoveBall();
 
 #endif

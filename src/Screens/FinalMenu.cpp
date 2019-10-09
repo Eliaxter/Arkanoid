@@ -6,7 +6,6 @@
 
 void DrawWindowFinalMenu()
 {
-	BeginDrawing();
 	ClearBackground(BLACK);
 }
 
@@ -43,6 +42,5 @@ void FinalMenu()
 {
 	DrawWindowFinalMenu();
 	DrawTextFinalMenu();
-	InputFinalMenu();
-	EndDrawing();
+	InputFinalMenu();;
 }
