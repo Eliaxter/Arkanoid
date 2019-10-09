@@ -1,21 +1,24 @@
 #ifndef GAMEPLAY_H
 #define GAMEPLAY_H
 
-extern bool ballOnRectangle;
-extern bool startKey;
+namespace Game
+{
+	extern bool ballOnRectangle;
+	extern bool startKey;
 
-extern int playerPoints;
+	extern int playerPoints;
 
-void DrawWindow();
-void InitWindow();
-void DrawTexts();
-void PosBallOnRectangle();
-void StartGame();
-void ResetBallOnRectangle();
-void CheckCollisionBallBricks();
-void InitGame();
-void MovePlayer();
-void Update();
-void Draw();
+	void DrawWindow();
+	void InitWindowArkanoid();
+	void DrawTexts();
+	void PosBallOnRectangle();
+	void StartGame();
+	void ResetBallOnRectangle();
+	void CheckCollisionBallBricks();
+	void InitGame();
+	void MovePlayer();
+	void Update();
+	void Draw();
+}
 
 #endif

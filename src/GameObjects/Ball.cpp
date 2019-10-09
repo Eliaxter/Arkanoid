@@ -4,42 +4,45 @@
 
 #include "Global.h"
 
-Vector2 ballPosition;
-Vector2 speedBall;
-
-const int minScreenWidth = 0;
-const int minScreenHeight = 0;
-
-void InitBall()
+namespace Game
 {
-	ballPosition.x = posInitialBallX;
-	ballPosition.y = posInitialBallY;
-}
+	Vector2 ballPosition;
+	Vector2 speedBall;
 
-void InitSpeedBall()
-{
-	speedBall.x = 600.0f;
-	speedBall.y = 600.0f;
-}
+	const int minScreenWidth = 0;
+	const int minScreenHeight = 0;
 
-void DrawBall()
-{
-	DrawCircleV(ballPosition, ballRadius, WHITE);
-}
-
-void WindowCollisions()
-{
-	if (((ballPosition.x + ballRadius) >= screenWidth) || ((ballPosition.x - ballRadius) <= minScreenWidth))
+	void InitBall()
 	{
-		speedBall.x *= -1.0f;
+		ballPosition.x = posInitialBallX;
+		ballPosition.y = posInitialBallY;
 	}
-	if (ballPosition.y < ballRadius)
-	{
-		speedBall.y *= -1.0f;
-	}
-}
 
-void MoveBall()
-{
-	ballPosition.y -= speedBall.y * GetFrameTime();
+	void InitSpeedBall()
+	{
+		speedBall.x = 600.0f;
+		speedBall.y = 600.0f;
+	}
+
+	void DrawBall()
+	{
+		DrawCircleV(ballPosition, ballRadius, WHITE);
+	}
+
+	void WindowCollisions()
+	{
+		if (((ballPosition.x + ballRadius) >= screenWidth) || ((ballPosition.x - ballRadius) <= minScreenWidth))
+		{
+			speedBall.x *= -1.0f;
+		}
+		if (ballPosition.y < ballRadius)
+		{
+			speedBall.y *= -1.0f;
+		}
+	}
+
+	void MoveBall()
+	{
+		ballPosition.y -= speedBall.y * GetFrameTime();
+	}
 }

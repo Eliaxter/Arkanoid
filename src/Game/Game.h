@@ -1,16 +1,19 @@
 #ifndef GAME_H
 #define GAME_H
 
-enum GameState
+namespace Game
 {
-	StartMenu,
-	Game,
-	Lose,
-	CloseAll
-};
+	enum GameState
+	{
+		StartMenu,
+		Game,
+		Lose,
+		CloseAll
+	};
 
-extern GameState state;
+	extern GameState state;
 
-void GameLoop();
+	void GameLoop();
+}
 
 #endif

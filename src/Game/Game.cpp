@@ -8,30 +8,33 @@
 #include "Player.h"
 #include "Ball.h"
 
-GameState state = GameState::StartMenu;
-
-void GameLoop()
+namespace Game
 {
-	InitWindow();
+	GameState state = GameState::StartMenu;
 
-	while (!WindowShouldClose())
+	void GameLoop()
 	{
-		BeginDrawing();
-		ClearBackground(BLACK);
-		if (state == GameState::StartMenu)
+		InitWindowArkanoid();
+
+		while (!WindowShouldClose())
 		{
-			Menu();
+			BeginDrawing();
+			ClearBackground(BLACK);
+			if (state == GameState::StartMenu)
+			{
+				Menu();
+			}
+			if (state == GameState::Game)
+			{
+				Update();
+				Draw();
+			}
+			if (state == GameState::Lose)
+			{
+				FinalMenu();
+			}
+			EndDrawing();
 		}
-		if (state == GameState::Game)
-		{
-			Update();
-			Draw();
-		}
-		if (state == GameState::Lose)
-		{
-			FinalMenu();
-		}
-		EndDrawing();
+		CloseWindow();
 	}
-	CloseWindow();
 }

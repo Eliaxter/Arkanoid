@@ -3,19 +3,22 @@
 
 #include "raylib.h"
 
-extern const int lineOfBricks;
-const int brickSize = 35;
-
-
-struct Brick
+namespace Game
 {
-	Rectangle rect;
-	int life;
-};
+	extern const int lineOfBricks;
+	const int brickSize = 28;
 
-extern Brick bricks[brickSize];
 
-void InitBricks();
-void DrawBricks();
+	struct Brick
+	{
+		Rectangle rect;
+		int life;
+	};
+
+	extern Brick bricks[brickSize];
+
+	void InitBricks();
+	void DrawBricks();
+}
 
 #endif
