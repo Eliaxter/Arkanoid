@@ -109,6 +109,17 @@ namespace Game
 		}
 	}
 
+	void AngleOfBall()
+	{
+		if (CheckCollisionCircleRec(ballPosition, ballRadius, player1))
+		{
+			if ((player1.width / 2) && (ballPosition.y - ballRadius))
+			{
+				ballPosition.x += speedBall.x * GetFrameTime();
+			}
+		}
+	}
+
 	void CheckPlayerWin()
 	{
 		if (playerPoints >= pointsToWin)
@@ -143,6 +154,7 @@ namespace Game
 		PosBallOnRectangle();
 		StartGame();
 		MovePlayer();
+		AngleOfBall();
 		WindowCollisions();
 		ResetBallOnRectangle();
 		CheckCollisionBallBricks();

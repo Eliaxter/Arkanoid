@@ -18,6 +18,7 @@ namespace Game
 	void CheckCollisionBallBricks();
 	void InitGame();
 	void MovePlayer();
+	void AngleOfBall();
 	void CheckPlayerWin();
 	void ResetPoints();
 	void ResetTries();
