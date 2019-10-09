@@ -4,13 +4,13 @@
 
 #include "Game.h"
 
-void DrawWindow()
+void DrawWindowMenu()
 {
 	BeginDrawing();
 	ClearBackground(BLACK);
 }
 
-void DrawText() 
+void DrawTextMenu() 
 {
 	DrawText("Elias Arkanoid!", 300, 100, 20, RAYWHITE);
 	DrawText("To Play the game, press the key: ENTER", 300, 120, 20, RAYWHITE);
@@ -36,8 +36,8 @@ void InputMenu()
 
 void Menu()
 {
-	DrawWindow();
-	DrawText();
+	DrawWindowMenu();
+	DrawTextMenu();
 	InputMenu();
 	EndDrawing();
 }

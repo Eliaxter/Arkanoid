@@ -1,8 +1,8 @@
 #ifndef MENU_H
 #define MENU_H
 
-void DrawWindow();
-void DrawText();
+void DrawWindowMenu();
+void DrawTextMenu();
 void Menu();
 void InputMenu();
 

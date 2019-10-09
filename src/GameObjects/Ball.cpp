@@ -7,6 +7,9 @@
 static Vector2 ballPosition;
 static Vector2 speedBall;
 
+const int minScreenWidth = 0;
+const int minScreenHeight = 0;
+
 void InitBall()
 {
 	ballPosition.x = posInitialBallX;

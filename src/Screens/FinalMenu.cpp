@@ -2,13 +2,13 @@
 
 #include "raylib.h"
 
-void DrawWindow()
+void DrawWindowFinalMenu()
 {
 	BeginDrawing();
 	ClearBackground(BLACK);
 }
 
-void DrawText()
+void DrawTextFinalMenu()
 {
 	DrawText("End of Game!", 300, 160, 20, RAYWHITE);
 
@@ -39,8 +39,8 @@ void InputFinalMenu()
 
 void FinalMenu()
 {
-	DrawWindow();
-	DrawText();
+	DrawWindowFinalMenu();
+	DrawTextFinalMenu();
 	InputFinalMenu();
 	EndDrawing();
 }

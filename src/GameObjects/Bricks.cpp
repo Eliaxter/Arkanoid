@@ -2,8 +2,6 @@
 
 #include "raylib.h"
 
-const int screenWidth = 800;
-const int screenHeight = 450;
 const int minScreenWidth = 0;
 const int minScreenHeight = 0;
 

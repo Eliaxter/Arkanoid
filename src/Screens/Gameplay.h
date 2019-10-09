@@ -1,8 +1,8 @@
 #ifndef GAMEPLAY_H
 #define GAMEPLAY_H
 
-extern bool ballOnRectangle = true;
-extern bool startKey = false;
+extern bool ballOnRectangle;
+extern bool startKey;
 
 void DrawWindow();
 void InitWindow();
