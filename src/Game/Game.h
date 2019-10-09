@@ -7,6 +7,7 @@ namespace Game
 	{
 		StartMenu,
 		Game,
+		MenuFinal,
 		Lose,
 		CloseAll
 	};

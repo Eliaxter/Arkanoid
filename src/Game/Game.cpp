@@ -29,7 +29,7 @@ namespace Game
 				Update();
 				Draw();
 			}
-			if (state == GameState::Lose)
+			if (state == GameState::MenuFinal)
 			{
 				FinalMenu();
 			}

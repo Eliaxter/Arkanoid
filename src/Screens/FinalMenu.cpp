@@ -3,6 +3,7 @@
 #include "raylib.h"
 
 #include "Game.h"
+#include "Gameplay.h"
 
 namespace Game
 {
@@ -32,11 +33,12 @@ namespace Game
 		}
 		if (IsKeyDown(KEY_Y))
 		{
+			InitGame();
 			state = GameState::Game;
 		}
 		if (IsKeyDown(KEY_N))
 		{
-
+			state = GameState::Lose;
 		}
 	}
 

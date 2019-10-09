@@ -7,6 +7,7 @@ namespace Game
 	extern bool startKey;
 
 	extern int playerPoints;
+	extern int tries;
 
 	void DrawWindow();
 	void InitWindowArkanoid();
@@ -17,6 +18,9 @@ namespace Game
 	void CheckCollisionBallBricks();
 	void InitGame();
 	void MovePlayer();
+	void CheckPlayerWin();
+	void ResetPoints();
+	void ResetTries();
 	void Update();
 	void Draw();
 }

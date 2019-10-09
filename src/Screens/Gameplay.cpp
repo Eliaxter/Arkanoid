@@ -6,6 +6,7 @@
 #include "Ball.h"
 #include "Player.h"
 #include "Bricks.h"
+#include "Game.h"
 
 namespace Game
 {
@@ -13,11 +14,16 @@ namespace Game
 	bool startKey = false;
 
 	int playerPoints = 0;
+	int tries = 5;
 
 	static float negativeSpeed = -1.0f;
 	static int brickLifeDown = 1;
 	static int brickDead = 0;
 	static float teleportBrick = -500.0f;
+	static int loseTries = 0;
+	static int pointsToWin = 50;
+	static int initialPoints = 0;
+	static int initialTries = 5;
 
 	void DrawWindow()
 	{
@@ -31,7 +37,8 @@ namespace Game
 
 	void DrawTexts()
 	{
-		DrawText("move the player with arrow keys", 10, 10, 20, DARKGRAY);
+		DrawText(TextFormat("Tries: %i", tries), 10, 10, 30, WHITE);
+		DrawText(TextFormat("Points: %i", playerPoints), 650, 20, 30, WHITE);
 	}
 
 	void PosBallOnRectangle()
@@ -59,10 +66,15 @@ namespace Game
 	{
 		if ((ballPosition.y - ballRadius) > screenHeight)
 		{
+			tries--;
 			startKey = false;
 			ballOnRectangle = true;
 			ballPosition.x = player1.x;
 			ballPosition.y = player1.y - player1.height + 10.0f;
+			if (tries <= loseTries)
+			{
+				state = GameState::MenuFinal;
+			}
 		}
 	}
 
@@ -73,6 +85,7 @@ namespace Game
 			if (CheckCollisionCircleRec(ballPosition, ballRadius, bricks[i].rect))
 			{
 				bricks[i].life -= brickLifeDown;
+				playerPoints++;
 				speedBall.y *= negativeSpeed;
 				speedBall.x *= negativeSpeed;
 			}
@@ -96,12 +109,33 @@ namespace Game
 		}
 	}
 
+	void CheckPlayerWin()
+	{
+		if (playerPoints >= pointsToWin)
+		{
+			state = GameState::MenuFinal;
+		}
+	}
+
+	void ResetPoints()
+	{
+		playerPoints = initialPoints;
+	}
+
+	void ResetTries()
+	{
+		tries = initialTries;
+	}
+
 	void InitGame()
 	{
 		InitPlayer();
 		InitBall();
+		InitBricks();
 		SetPlayerSizes();
 		InitSpeedBall();
+		ResetPoints();
+		ResetTries();
 	}
 
 	void Update()
@@ -113,11 +147,13 @@ namespace Game
 		ResetBallOnRectangle();
 		CheckCollisionBallBricks();
 		CollisionBallWithPlayer();
+		CheckPlayerWin();
 		LimitMove();
 	}
 
 	void Draw()
 	{
+		DrawTexts();
 		DrawBall();
 		DrawPlayer();
 		DrawBricks();

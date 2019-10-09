@@ -29,9 +29,6 @@ namespace Game
 		{
 			state = GameState::Game;
 			InitGame();
-			InitPlayer();
-			InitBall();
-			InitBricks();
 		}
 		if (IsKeyDown(KEY_H))
 		{
