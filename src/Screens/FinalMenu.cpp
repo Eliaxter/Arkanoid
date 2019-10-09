@@ -2,6 +2,8 @@
 
 #include "raylib.h"
 
+#include "Game.h"
+
 void DrawWindowFinalMenu()
 {
 	BeginDrawing();
@@ -21,15 +23,15 @@ void InputFinalMenu()
 {
 	if (IsKeyDown(KEY_M))
 	{
-
+		state = GameState::StartMenu;
 	}
 	if (IsKeyDown(KEY_ESCAPE))
 	{
-
+		CloseWindow();
 	}
 	if (IsKeyDown(KEY_Y))
 	{
-
+		state = GameState::Game;
 	}
 	if (IsKeyDown(KEY_N))
 	{

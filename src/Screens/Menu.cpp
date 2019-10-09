@@ -6,7 +6,6 @@
 
 void DrawWindowMenu()
 {
-	BeginDrawing();
 	ClearBackground(BLACK);
 }
 
@@ -36,6 +35,7 @@ void InputMenu()
 
 void Menu()
 {
+	BeginDrawing();
 	DrawWindowMenu();
 	DrawTextMenu();
 	InputMenu();

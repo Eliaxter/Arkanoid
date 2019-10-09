@@ -3,7 +3,7 @@
 
 void DrawWindowMenu();
 void DrawTextMenu();
-void Menu();
 void InputMenu();
+void Menu();
 
 #endif

@@ -5,12 +5,15 @@
 #include "Menu.h"
 #include "Gameplay.h"
 #include "FinalMenu.h"
+#include "Player.h"
+#include "Ball.h"
 
 GameState state = GameState::StartMenu;
 
 void GameLoop()
 {
-	while (!WindowShouldClose)
+	InitWindow();
+	while (true)
 	{
 		if (state == GameState::StartMenu)
 		{
@@ -28,4 +31,5 @@ void GameLoop()
 			FinalMenu();
 		}
 	}
+	CloseWindow();
 }
