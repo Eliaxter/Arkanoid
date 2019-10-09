@@ -10,6 +10,8 @@
 bool ballOnRectangle = true;
 bool startKey = false;
 
+int playerPoints = 0;
+
 static float negativeSpeed = -1.0f;
 static int brickLifeDown = 1;
 static int brickDead = 0;
@@ -17,8 +19,6 @@ static float teleportBrick = -500.0f;
 
 void DrawWindow()
 {
-	BeginDrawing();
-
 	ClearBackground(BLACK);
 }
 

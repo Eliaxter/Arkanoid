@@ -24,7 +24,6 @@ void GameLoop()
 		}
 		if (state == GameState::Game)
 		{
-			//MovePlayer();
 			Update();
 			Draw();
 		}

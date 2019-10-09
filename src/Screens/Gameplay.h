@@ -4,6 +4,8 @@
 extern bool ballOnRectangle;
 extern bool startKey;
 
+extern int playerPoints;
+
 void DrawWindow();
 void InitWindow();
 void DrawTexts();
