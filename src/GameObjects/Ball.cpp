@@ -12,6 +12,8 @@ namespace Game
 	const int minScreenWidth = 0;
 	const int minScreenHeight = 0;
 
+	static float initialSpeed = 500.0f;
+
 	void InitBall()
 	{
 		ballPosition.x = posInitialBallX;
@@ -20,8 +22,8 @@ namespace Game
 
 	void InitSpeedBall()
 	{
-		speedBall.x = 600.0f;
-		speedBall.y = 600.0f;
+		speedBall.x = initialSpeed;
+		speedBall.y = initialSpeed;
 	}
 
 	void DrawBall()

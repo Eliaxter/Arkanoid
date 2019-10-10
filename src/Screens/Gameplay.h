@@ -16,6 +16,7 @@ namespace Game
 	void StartGame();
 	void ResetBallOnRectangle();
 	void CheckCollisionBallBricks();
+	void DrawBricks();
 	void InitGame();
 	void MovePlayer();
 	void AngleOfBall();

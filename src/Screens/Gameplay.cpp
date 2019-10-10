@@ -25,6 +25,12 @@ namespace Game
 	static int initialPoints = 0;
 	static int initialTries = 5;
 
+	static int firstLife = 1;
+	static int secondLife = 2;
+	static int thirdLife = 3;
+	static int fourthLife = 4;
+	static int fifthLife = 5;
+
 	void DrawWindow()
 	{
 		ClearBackground(BLACK);
@@ -97,6 +103,33 @@ namespace Game
 		}
 	}
 
+	void DrawBricks() 
+	{
+		for (int i = 0; i < brickSize; i++)
+		{
+			if (bricks[i].life == firstLife)
+			{
+				DrawRectangle(bricks[i].rect.x, bricks[i].rect.y, bricks[i].rect.width, bricks[i].rect.height, WHITE);
+			}
+			if (bricks[i].life == secondLife)
+			{
+				DrawRectangle(bricks[i].rect.x, bricks[i].rect.y, bricks[i].rect.width, bricks[i].rect.height, GREEN);
+			}
+			if (bricks[i].life == thirdLife)
+			{
+				DrawRectangle(bricks[i].rect.x, bricks[i].rect.y, bricks[i].rect.width, bricks[i].rect.height, PURPLE);
+			}
+			if (bricks[i].life == fourthLife)
+			{
+				DrawRectangle(bricks[i].rect.x, bricks[i].rect.y, bricks[i].rect.width, bricks[i].rect.height, GRAY);
+			}
+			if (bricks[i].life == fifthLife)
+			{
+				DrawRectangle(bricks[i].rect.x, bricks[i].rect.y, bricks[i].rect.width, bricks[i].rect.height, BLUE);
+			}
+		}
+	}
+
 	void MovePlayer()
 	{
 		if (IsKeyDown(KEY_RIGHT))
@@ -111,13 +144,7 @@ namespace Game
 
 	void AngleOfBall()
 	{
-		if (CheckCollisionCircleRec(ballPosition, ballRadius, player1))
-		{
-			if ((player1.width / 2) && (ballPosition.y - ballRadius))
-			{
-				ballPosition.x += speedBall.x * GetFrameTime();
-			}
-		}
+		ballPosition.x += speedBall.x * GetFrameTime();
 	}
 
 	void CheckPlayerWin()

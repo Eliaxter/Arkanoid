@@ -12,12 +12,6 @@ namespace Game
 
 	Brick bricks[brickSize] = { 0 };
 
-	static int firstLife = 1;
-	static int secondLife = 2;
-	static int thirdLife = 3;
-	static int fourthLife = 4;
-	static int fifthLife = 5;
-
 	void InitBricks()
 	{
 		for (int i = 0; i < brickSize; i++)
@@ -30,6 +24,15 @@ namespace Game
 		}
 	}
 
+	void DrawBrick()
+	{
+		for (int i = 0; i < 1; i++)
+		{
+			DrawRectangle(bricks[i].rect.x, bricks[i].rect.y, bricks[i].rect.width, bricks[i].rect.height, WHITE);
+		}
+	}
+
+	/*
 	void DrawBricks()
 	{
 		for (int i = 0; i < brickSize; i++)
@@ -55,5 +58,5 @@ namespace Game
 				DrawRectangle(bricks[i].rect.x, bricks[i].rect.y, bricks[i].rect.width, bricks[i].rect.height, BLUE);
 			}
 		}
-	}
+	}*/
 }

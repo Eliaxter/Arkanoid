@@ -2,6 +2,7 @@
 
 #include "Global.h"
 #include "Ball.h"
+#include "Gameplay.h"
 
 namespace Game
 {
@@ -31,6 +32,10 @@ namespace Game
 			if (CheckCollisionCircleRec(ballPosition, ballRadius, player1))
 			{
 				speedBall.y *= -1.0f;
+				if ((ballPosition.y - ballRadius) >= (player1.x + player1.width / 2))
+				{
+					AngleOfBall();
+				}
 			}
 		}
 	}

@@ -18,6 +18,7 @@ namespace Game
 	extern Brick bricks[brickSize];
 
 	void InitBricks();
+	//void DrawBrick();
 	void DrawBricks();
 }
 
