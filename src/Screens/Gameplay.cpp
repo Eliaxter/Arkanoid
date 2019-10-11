@@ -31,6 +31,14 @@ namespace Game
 	static int fourthLife = 4;
 	static int fifthLife = 5;
 
+	const int dontCheckCollisionFrames = 20;
+	bool previusFrameCollisionP1 = false;
+	int lastCollisionFramesP1 = 0;
+	bool previusFrameCollisionP2 = false;
+	int lastCollisionFramesP2 = 0;
+	bool previusFrameCollision = false;
+	int lastCollisionFrames = 0;
+
 	void DrawWindow()
 	{
 		ClearBackground(BLACK);
@@ -144,7 +152,7 @@ namespace Game
 
 	void AngleOfBall()
 	{
-		ballPosition.x += speedBall.x * GetFrameTime();
+		//ballPosition.x += speedBall.x * GetFrameTime();s
 	}
 
 	void CheckPlayerWin()

@@ -46,5 +46,6 @@ namespace Game
 	void MoveBall()
 	{
 		ballPosition.y -= speedBall.y * GetFrameTime();
+		ballPosition.x += speedBall.x * GetFrameTime();
 	}
 }

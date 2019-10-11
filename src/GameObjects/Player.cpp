@@ -8,6 +8,14 @@ namespace Game
 {
 	Rectangle player1;
 
+	static const int dontCheckCollisionFrames = 20;
+	static bool previusFrameCollisionPlayer = false;
+	static int lastCollisionFramesPlayer = 0;
+	static bool previusFrameCollision = false;
+	static int lastCollisionFrames = 0;
+
+	static float negativeSpeed = -1.0f;
+
 	void InitPlayer()
 	{
 		player1.x = posInitialPlayer1X;
@@ -27,15 +35,24 @@ namespace Game
 
 	void CollisionBallWithPlayer()
 	{
+		if (previusFrameCollisionPlayer)
+		{
+			lastCollisionFramesPlayer++;
+			if (lastCollisionFramesPlayer >= dontCheckCollisionFrames)
+			{
+				previusFrameCollision = 0;
+				lastCollisionFramesPlayer = false;
+			}
+		}
 		if ((ballPosition.y + ballRadius) >= (screenHeight - player1.height))
 		{
 			if (CheckCollisionCircleRec(ballPosition, ballRadius, player1))
 			{
-				speedBall.y *= -1.0f;
-				if ((ballPosition.y - ballRadius) >= (player1.x + player1.width / 2))
+				if (!previusFrameCollisionPlayer)
 				{
-					AngleOfBall();
+					speedBall.y *= negativeSpeed;
 				}
+				//speedBall.x = (ballPosition.x - player1.x - player1.width / 2) / (player1.width / 2) * 5;
 			}
 		}
 	}
