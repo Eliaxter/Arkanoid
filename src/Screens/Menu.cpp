@@ -4,9 +4,6 @@
 
 #include "Game.h"
 #include "Gameplay.h"
-#include "Player.h"
-#include "Ball.h"
-#include "Bricks.h"
 
 namespace Game
 {

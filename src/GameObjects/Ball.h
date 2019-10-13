@@ -5,9 +5,9 @@
 
 namespace Game
 {
-	const int posInitialBallX = screenWidth / 2;
-	const int posInitialBallY = 430;
-	const int ballRadius = 10;
+	extern const int posInitialBallX;
+	extern const int posInitialBallY;
+	extern const int ballRadius;
 
 	extern Vector2 ballPosition;
 	extern Vector2 speedBall;

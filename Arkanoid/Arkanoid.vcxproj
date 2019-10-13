@@ -25,6 +25,7 @@
     <ClCompile Include="..\src\Game\Game.cpp" />
     <ClCompile Include="..\src\Game\Global.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\Screens\Credits.cpp" />
     <ClCompile Include="..\src\Screens\FinalMenu.cpp" />
     <ClCompile Include="..\src\Screens\Gameplay.cpp" />
     <ClCompile Include="..\src\Screens\Menu.cpp" />
@@ -35,6 +36,7 @@
     <ClInclude Include="..\src\GameObjects\Player.h" />
     <ClInclude Include="..\src\Game\Game.h" />
     <ClInclude Include="..\src\Game\Global.h" />
+    <ClInclude Include="..\src\Screens\Credits.h" />
     <ClInclude Include="..\src\Screens\FinalMenu.h" />
     <ClInclude Include="..\src\Screens\Gameplay.h" />
     <ClInclude Include="..\src\Screens\Menu.h" />

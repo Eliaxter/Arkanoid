@@ -8,7 +8,7 @@ namespace Game
 		StartMenu,
 		Game,
 		MenuFinal,
-		Lose,
+		Credits,
 		CloseAll
 	};
 

@@ -19,6 +19,8 @@ namespace Game
 		DrawText("Return to Main Menu: M", 300, 220, 20, RAYWHITE);
 
 		DrawText("Play Again: Y/N", 300, 200, 20, RAYWHITE);
+
+		DrawText("Credits: C", 300, 240, 20, RAYWHITE);
 	}
 
 	void InputFinalMenu()
@@ -31,6 +33,10 @@ namespace Game
 		{
 			CloseWindow();
 		}
+		if (IsKeyDown(KEY_C))
+		{
+			state = GameState::Credits;
+		}
 		if (IsKeyDown(KEY_Y))
 		{
 			InitGame();
@@ -38,7 +44,7 @@ namespace Game
 		}
 		if (IsKeyDown(KEY_N))
 		{
-			state = GameState::Lose;
+			state = GameState::CloseAll;
 		}
 	}
 
@@ -46,6 +52,6 @@ namespace Game
 	{
 		DrawWindowFinalMenu();
 		DrawTextFinalMenu();
-		InputFinalMenu();;
+		InputFinalMenu();
 	}
 }

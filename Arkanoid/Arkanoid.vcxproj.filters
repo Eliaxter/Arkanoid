@@ -39,6 +39,9 @@
     <ClCompile Include="..\src\Screens\FinalMenu.cpp">
       <Filter>codefiles</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Screens\Credits.cpp">
+      <Filter>codefiles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Game\Game.h">
@@ -63,6 +66,9 @@
       <Filter>headers</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Screens\FinalMenu.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Screens\Credits.h">
       <Filter>headers</Filter>
     </ClInclude>
   </ItemGroup>
