@@ -3,8 +3,6 @@
 
 #include "raylib.h"
 
-#include "Global.h"
-
 namespace Game
 {
 	const int posInitialBallX = screenWidth / 2;

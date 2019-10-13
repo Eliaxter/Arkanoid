@@ -9,6 +9,15 @@ namespace Game
 	extern int playerPoints;
 	extern int tries;
 
+	extern const int dontCheckCollisionFrames;
+	extern bool previusFrameCollisionBall;
+	extern bool previusFrameCollisionPlayer;
+	extern int lastCollisionFramesPlayer;
+	extern int lastCollisionFramesBall;
+	extern bool previusFrameCollision;
+	extern int lastCollisionFrames;
+
+
 	void DrawWindow();
 	void InitWindowArkanoid();
 	void DrawTexts();

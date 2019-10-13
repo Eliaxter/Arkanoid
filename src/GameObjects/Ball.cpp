@@ -3,6 +3,7 @@
 #include "raylib.h"
 
 #include "Global.h"
+#include "Gameplay.h"
 
 namespace Game
 {
@@ -13,6 +14,9 @@ namespace Game
 	const int minScreenHeight = 0;
 
 	static float initialSpeed = 500.0f;
+
+	bool previusFrameCollisionBall = false;
+	int lastCollisionFramesBall = 0;
 
 	void InitBall()
 	{
@@ -33,14 +37,28 @@ namespace Game
 
 	void WindowCollisions()
 	{
+		if (previusFrameCollisionBall)
+		{
+			lastCollisionFramesBall++;
+			if (lastCollisionFramesBall >= dontCheckCollisionFrames)
+			{
+				previusFrameCollision = 0;
+				lastCollisionFramesBall = false;
+			}
+		}
+	
 		if (((ballPosition.x + ballRadius) >= screenWidth) || ((ballPosition.x - ballRadius) <= minScreenWidth))
 		{
-			speedBall.x *= -1.0f;
+			if (!previusFrameCollisionBall) 
+			{
+				speedBall.x *= -1.0f;
+			}
 		}
 		if (ballPosition.y < ballRadius)
 		{
 			speedBall.y *= -1.0f;
 		}
+
 	}
 
 	void MoveBall()

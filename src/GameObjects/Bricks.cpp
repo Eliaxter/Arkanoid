@@ -9,6 +9,7 @@ namespace Game
 
 	const int lineOfBricks = 4;
 
+	static int oneBrick = 1;
 
 	Brick bricks[brickSize] = { 0 };
 
@@ -26,37 +27,9 @@ namespace Game
 
 	void DrawBrick()
 	{
-		for (int i = 0; i < 1; i++)
+		for (int i = 0; i < oneBrick; i++)
 		{
 			DrawRectangle(bricks[i].rect.x, bricks[i].rect.y, bricks[i].rect.width, bricks[i].rect.height, WHITE);
 		}
 	}
-
-	/*
-	void DrawBricks()
-	{
-		for (int i = 0; i < brickSize; i++)
-		{
-			if (bricks[i].life == firstLife)
-			{
-				DrawRectangle(bricks[i].rect.x, bricks[i].rect.y, bricks[i].rect.width, bricks[i].rect.height, WHITE);
-			}
-			if (bricks[i].life == secondLife)
-			{
-				DrawRectangle(bricks[i].rect.x, bricks[i].rect.y, bricks[i].rect.width, bricks[i].rect.height, GREEN);
-			}
-			if (bricks[i].life == thirdLife)
-			{
-				DrawRectangle(bricks[i].rect.x, bricks[i].rect.y, bricks[i].rect.width, bricks[i].rect.height, PURPLE);
-			}
-			if (bricks[i].life == fourthLife)
-			{
-				DrawRectangle(bricks[i].rect.x, bricks[i].rect.y, bricks[i].rect.width, bricks[i].rect.height, GRAY);
-			}
-			if (bricks[i].life == fifthLife)
-			{
-				DrawRectangle(bricks[i].rect.x, bricks[i].rect.y, bricks[i].rect.width, bricks[i].rect.height, BLUE);
-			}
-		}
-	}*/
 }

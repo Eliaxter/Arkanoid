@@ -8,11 +8,11 @@ namespace Game
 {
 	Rectangle player1;
 
-	static const int dontCheckCollisionFrames = 20;
-	static bool previusFrameCollisionPlayer = false;
-	static int lastCollisionFramesPlayer = 0;
-	static bool previusFrameCollision = false;
-	static int lastCollisionFrames = 0;
+	const int dontCheckCollisionFrames = 20;
+	bool previusFrameCollisionPlayer = false;
+	int lastCollisionFramesPlayer = 0;
+	bool previusFrameCollision = false;
+	int lastCollisionFrames = 0;
 
 	static float negativeSpeed = -1.0f;
 

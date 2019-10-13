@@ -19,7 +19,6 @@ namespace Game
 
 	void InitBricks();
 	void DrawBrick();
-	//void DrawBricks();
 }
 
 #endif
