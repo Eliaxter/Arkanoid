@@ -14,11 +14,12 @@ namespace Game
 	bool startKey = false;
 
 	int playerPoints = 0;
-	int tries = 5;
+	int tries = 1000;
 
 	static float negativeSpeed = -1.0f;
 	static int brickLifeDown = 1;
 	static int brickDead = 0;
+	static int bricksDestroyed = 0;
 	static float teleportBrick = -500.0f;
 	static int loseTries = 0;
 	static int pointsToWin = 50;
@@ -30,6 +31,9 @@ namespace Game
 	static int thirdLife = 3;
 	static int fourthLife = 4;
 	static int fifthLife = 5;
+
+	static float playerSpeed = 500.0f;
+	static int halfPlayer = 75;
 
 	void DrawWindow()
 	{
@@ -51,7 +55,7 @@ namespace Game
 	{
 		if (ballOnRectangle == true)
 		{
-			ballPosition.x = player1.x + 75;
+			ballPosition.x = player1.x + halfPlayer;
 		}
 	}
 
@@ -72,7 +76,7 @@ namespace Game
 	{
 		if ((ballPosition.y - ballRadius) > screenHeight)
 		{
-			tries--;
+			//tries--;
 			startKey = false;
 			ballOnRectangle = true;
 			ballPosition.x = player1.x;
@@ -88,17 +92,22 @@ namespace Game
 	{
 		for (int i = 0; i < brickSize; i++)
 		{
-			if (CheckCollisionCircleRec(ballPosition, ballRadius, bricks[i].rect))
+			if (bricks[i].isAlive == true)
 			{
-				bricks[i].life -= brickLifeDown;
-				playerPoints++;
-				speedBall.y *= negativeSpeed;
-				speedBall.x *= negativeSpeed;
-			}
-			if (bricks[i].life == brickDead)
-			{
-				bricks[i].rect.x = teleportBrick;
-				bricks[i].rect.y = teleportBrick;
+				if (CheckCollisionCircleRec(ballPosition, ballRadius, bricks[i].rect))
+				{
+					bricks[i].life -= brickLifeDown;
+					playerPoints++;
+					speedBall.y *= negativeSpeed;
+					speedBall.x *= negativeSpeed;
+					if (bricks[i].life <= brickDead)
+					{
+						bricksDestroyed++;
+						bricks[i].rect.x = teleportBrick;
+						bricks[i].rect.y = teleportBrick;
+						bricks[i].isAlive = false;
+					}
+				}
 			}
 		}
 	}
@@ -134,11 +143,11 @@ namespace Game
 	{
 		if (IsKeyDown(KEY_RIGHT))
 		{
-			player1.x += 500.0f * GetFrameTime();
+			player1.x += playerSpeed * GetFrameTime();
 		}
 		if (IsKeyDown(KEY_LEFT))
 		{
-			player1.x -= 500.0f * GetFrameTime();
+			player1.x -= playerSpeed * GetFrameTime();
 		}
 	}
 
@@ -149,7 +158,7 @@ namespace Game
 
 	void CheckPlayerWin()
 	{
-		if (playerPoints >= pointsToWin)
+		if (bricksDestroyed >= brickSize)
 		{
 			state = GameState::MenuFinal;
 		}
@@ -174,6 +183,9 @@ namespace Game
 		InitSpeedBall();
 		ResetPoints();
 		ResetTries();
+		bricksDestroyed = 0;
+		startKey = false;
+		ballOnRectangle = true;
 	}
 
 	void Update()

@@ -8,6 +8,7 @@ namespace Game
 	const int minScreenHeight = 0;
 
 	const int lineOfBricks = 4;
+	const int brickSize = 28;
 
 	static int oneBrick = 1;
 
@@ -22,6 +23,7 @@ namespace Game
 			bricks[i].rect.width = 50.0f;
 			bricks[i].rect.height = 20.0f;
 			bricks[i].life = GetRandomValue(1, 5);
+			bricks[i].isAlive = true;
 		}
 	}
 

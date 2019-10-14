@@ -15,11 +15,11 @@ namespace Game
 	{
 		DrawText("Credits", 300, 160, 20, RAYWHITE);
 
-		DrawText("To return to, press the key: ESCAPE", 300, 220, 20, RAYWHITE);
+		DrawText("Audio & Sounds: Lautaro Brucart", 300, 180, 20, RAYWHITE);
 
-		DrawText("To return Main Menu, press the key: M", 300, 200, 20, RAYWHITE);
+		DrawText("To return to, press the key: ESCAPE", 300, 200, 20, RAYWHITE);
 
-		DrawText("--------", 300, 240, 20, RAYWHITE);
+		DrawText("To return Main Menu, press the key: M", 300, 220, 20, RAYWHITE);
 	}
 
 	void InputCredits()

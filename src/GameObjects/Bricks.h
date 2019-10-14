@@ -6,17 +6,18 @@
 namespace Game
 {
 	extern const int lineOfBricks;
-	const int brickSize = 28;
-
+	extern const int brickSize;
 
 	struct Brick
 	{
 		Rectangle rect;
 		int life;
+		bool isAlive;
 	};
 
 	extern Brick bricks[brickSize];
 
+	
 	void InitBricks();
 	void DrawBrick();
 }

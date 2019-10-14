@@ -51,16 +51,26 @@ namespace Game
 			}
 		}
 	
-		if (((ballPosition.x + ballRadius) >= screenWidth) || ((ballPosition.x - ballRadius) <= minScreenWidth))
+		if ((ballPosition.x + ballRadius) >= screenWidth)
 		{
 			if (!previusFrameCollisionBall) 
 			{
 				speedBall.x *= -1.0f;
+				ballPosition.x = screenWidth - ballRadius;
+			}
+		}
+		if ((ballPosition.x - ballRadius) <= minScreenWidth)
+		{
+			if (!previusFrameCollisionBall)
+			{
+				speedBall.x *= -1.0f;
+				ballPosition.x = ballRadius;
 			}
 		}
 		if (ballPosition.y < ballRadius)
 		{
 			speedBall.y *= -1.0f;
+			ballPosition.y = ballRadius;
 		}
 
 	}

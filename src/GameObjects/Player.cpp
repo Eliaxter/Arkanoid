@@ -51,6 +51,7 @@ namespace Game
 				if (!previusFrameCollisionPlayer)
 				{
 					speedBall.y *= negativeSpeed;
+					ballPosition.y = player1.y - ballRadius;
 				}
 				//speedBall.x = (ballPosition.x - player1.x - player1.width / 2) / (player1.width / 2) * 5;
 			}
