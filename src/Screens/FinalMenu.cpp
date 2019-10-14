@@ -50,10 +50,11 @@ namespace Game
 
 	void FinalMenu()
 	{
+		/*
 		if (IsMusicPlaying)
 		{
 			StopMusicStream(backgroundMusic);
-		}
+		}*/
 		DrawWindowFinalMenu();
 		DrawTextFinalMenu();
 		InputFinalMenu();

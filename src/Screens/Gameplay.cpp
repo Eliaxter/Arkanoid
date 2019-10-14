@@ -233,9 +233,9 @@ namespace Game
 		ResetBallOnRectangle();
 		CheckCollisionBallBricks();
 		CollisionBallWithPlayer();
+		PlayMusicStream(backgroundMusic);
 		CheckPlayerWin();
 		LimitMove();
-		PlayMusicStream(backgroundMusic);
 		MuteSounds();
 	}
 
