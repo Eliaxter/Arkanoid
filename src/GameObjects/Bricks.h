@@ -5,9 +5,6 @@
 
 namespace Game
 {
-	extern const int lineOfBricks;
-	extern const int brickSize;
-
 	struct Brick
 	{
 		Rectangle rect;
@@ -15,9 +12,10 @@ namespace Game
 		bool isAlive;
 	};
 
+	extern const int lineOfBricks;
+	const int brickSize = 28;
 	extern Brick bricks[brickSize];
 
-	
 	void InitBricks();
 	void DrawBrick();
 }

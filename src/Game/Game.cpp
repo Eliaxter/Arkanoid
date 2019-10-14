@@ -3,6 +3,7 @@
 #include "raylib.h"
 
 #include "Menu.h"
+#include "Feedback.h"
 #include "Gameplay.h"
 #include "FinalMenu.h"
 #include "Credits.h"
@@ -16,6 +17,7 @@ namespace Game
 	void GameLoop()
 	{
 		InitWindowArkanoid();
+		InitAudioDevice();
 
 		while (!WindowShouldClose())
 		{
@@ -24,6 +26,10 @@ namespace Game
 			if (state == GameState::StartMenu)
 			{
 				Menu();
+			}
+			if (state == GameState::Feedback)
+			{
+				FeedBack();
 			}
 			if (state == GameState::Game)
 			{
@@ -44,6 +50,8 @@ namespace Game
 			}
 			EndDrawing();
 		}
+		UnloadSound(collisionWave1);
+		UnloadMusicStream(backgroundMusic);
 		CloseWindow();
 	}
 }

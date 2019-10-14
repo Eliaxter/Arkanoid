@@ -14,7 +14,7 @@ namespace Game
 	bool startKey = false;
 
 	int playerPoints = 0;
-	int tries = 1000;
+	int tries = 5;
 
 	static float negativeSpeed = -1.0f;
 	static int brickLifeDown = 1;
@@ -32,8 +32,14 @@ namespace Game
 	static int fourthLife = 4;
 	static int fifthLife = 5;
 
-	static float playerSpeed = 500.0f;
+	static float playerSpeed = 750.0f;
 	static int halfPlayer = 75;
+
+	static int resetVariable = 0;
+
+	Music backgroundMusic;
+	Sound collisionWave1;
+	Sound collisionWave2;
 
 	void DrawWindow()
 	{
@@ -44,6 +50,18 @@ namespace Game
 	{
 		InitWindow(screenWidth, screenHeight, "Arkanoid Elias");
 	}
+
+	void InitMusic()
+	{
+		backgroundMusic = LoadMusicStream("assets/music/backgroundMusic.ogg");
+	}
+
+	void InitSounds() 
+	{
+		collisionWave1 = LoadSound("assets/sound/collisionSound01.wav");
+		collisionWave2 = LoadSound("assets/sound/collisionSound02.wav");
+	}
+
 
 	void DrawTexts()
 	{
@@ -76,7 +94,7 @@ namespace Game
 	{
 		if ((ballPosition.y - ballRadius) > screenHeight)
 		{
-			//tries--;
+			tries--;
 			startKey = false;
 			ballOnRectangle = true;
 			ballPosition.x = player1.x;
@@ -100,6 +118,7 @@ namespace Game
 					playerPoints++;
 					speedBall.y *= negativeSpeed;
 					speedBall.x *= negativeSpeed;
+					PlaySound(collisionWave1);
 					if (bricks[i].life <= brickDead)
 					{
 						bricksDestroyed++;
@@ -176,6 +195,8 @@ namespace Game
 
 	void InitGame()
 	{
+		InitMusic();
+		InitSounds();
 		InitPlayer();
 		InitBall();
 		InitBricks();
@@ -183,7 +204,7 @@ namespace Game
 		InitSpeedBall();
 		ResetPoints();
 		ResetTries();
-		bricksDestroyed = 0;
+		bricksDestroyed = resetVariable;
 		startKey = false;
 		ballOnRectangle = true;
 	}
@@ -200,6 +221,7 @@ namespace Game
 		CollisionBallWithPlayer();
 		CheckPlayerWin();
 		LimitMove();
+		PlayMusicStream(backgroundMusic);
 	}
 
 	void Draw()

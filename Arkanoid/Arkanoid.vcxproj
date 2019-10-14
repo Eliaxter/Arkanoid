@@ -26,6 +26,7 @@
     <ClCompile Include="..\src\Game\Global.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\Screens\Credits.cpp" />
+    <ClCompile Include="..\src\Screens\Feedback.cpp" />
     <ClCompile Include="..\src\Screens\FinalMenu.cpp" />
     <ClCompile Include="..\src\Screens\Gameplay.cpp" />
     <ClCompile Include="..\src\Screens\Menu.cpp" />
@@ -37,6 +38,7 @@
     <ClInclude Include="..\src\Game\Game.h" />
     <ClInclude Include="..\src\Game\Global.h" />
     <ClInclude Include="..\src\Screens\Credits.h" />
+    <ClInclude Include="..\src\Screens\Feedback.h" />
     <ClInclude Include="..\src\Screens\FinalMenu.h" />
     <ClInclude Include="..\src\Screens\Gameplay.h" />
     <ClInclude Include="..\src\Screens\Menu.h" />
@@ -109,7 +111,8 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\include;$(SolutionDir)src\Game\;$(SolutionDir)src\GameFunctions\;$(SolutionDir)src\GameObjects\;$(SolutionDir)src\Screens\</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>COLLISION</PreprocessorDefinitions>
+      <PreprocessorDefinitions>
+      </PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -119,8 +122,7 @@
       </EntryPointSymbol>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>copy $(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\lib\raylib.dll $(OutDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

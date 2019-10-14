@@ -7,11 +7,8 @@ namespace Game
 	const int minScreenWidth = 0;
 	const int minScreenHeight = 0;
 
-	const int lineOfBricks = 4;
-	const int brickSize = 28;
-
 	static int oneBrick = 1;
-
+	const int lineOfBricks = 4;
 	Brick bricks[brickSize] = { 0 };
 
 	void InitBricks()

@@ -1,6 +1,8 @@
 #ifndef GAMEPLAY_H
 #define GAMEPLAY_H
 
+#include "raylib.h"
+
 namespace Game
 {
 	extern bool ballOnRectangle;
@@ -17,9 +19,14 @@ namespace Game
 	extern bool previusFrameCollision;
 	extern int lastCollisionFrames;
 
+	extern Music backgroundMusic;
+	extern Sound collisionWave1;
+	extern Sound collisionWave2;
 
 	void DrawWindow();
 	void InitWindowArkanoid();
+	void InitMusic();
+	void InitSounds();
 	void DrawTexts();
 	void PosBallOnRectangle();
 	void StartGame();

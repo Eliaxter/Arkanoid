@@ -42,6 +42,9 @@
     <ClCompile Include="..\src\Screens\Credits.cpp">
       <Filter>codefiles</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Screens\Feedback.cpp">
+      <Filter>codefiles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Game\Game.h">
@@ -69,6 +72,9 @@
       <Filter>headers</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Screens\Credits.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Screens\Feedback.h">
       <Filter>headers</Filter>
     </ClInclude>
   </ItemGroup>
