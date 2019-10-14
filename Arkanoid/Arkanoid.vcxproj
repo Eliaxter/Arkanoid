@@ -110,7 +110,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\include;$(SolutionDir)src\Game\;$(SolutionDir)src\GameFunctions\;$(SolutionDir)src\GameObjects\;$(SolutionDir)src\Screens\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\include;$(SolutionDir)src\Game\;$(SolutionDir)src\GameFunctions\;$(SolutionDir)src\GameObjects\;$(SolutionDir)src\Screens\;$(SolutionDir)res\assets\sounds\;$(SolutionDir)res\assets\music\</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>
       </PreprocessorDefinitions>
     </ClCompile>
@@ -141,7 +141,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\include;$(SolutionDir)src\Game\;$(SolutionDir)src\GameFunctions\;$(SolutionDir)src\GameObjects\;$(SolutionDir)src\Screens\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\include;$(SolutionDir)src\Game\;$(SolutionDir)src\GameFunctions\;$(SolutionDir)src\GameObjects\;$(SolutionDir)src\Screens\;$(SolutionDir)res\assets\sounds\;$(SolutionDir)res\assets\music\</AdditionalIncludeDirectories>
       <SupportJustMyCode>false</SupportJustMyCode>
     </ClCompile>
     <Link>
@@ -153,8 +153,7 @@
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>copy $(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\lib\raylib.dll $(OutDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

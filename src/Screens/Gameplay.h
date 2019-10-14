@@ -27,6 +27,7 @@ namespace Game
 	void InitWindowArkanoid();
 	void InitMusic();
 	void InitSounds();
+	void MuteSounds();
 	void DrawTexts();
 	void PosBallOnRectangle();
 	void StartGame();

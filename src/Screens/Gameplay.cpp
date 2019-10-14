@@ -37,6 +37,8 @@ namespace Game
 
 	static int resetVariable = 0;
 
+	static bool isAudioPlaying = true;
+
 	Music backgroundMusic;
 	Sound collisionWave1;
 	Sound collisionWave2;
@@ -49,6 +51,7 @@ namespace Game
 	void InitWindowArkanoid()
 	{
 		InitWindow(screenWidth, screenHeight, "Arkanoid Elias");
+		InitAudioDevice();
 	}
 
 	void InitMusic()
@@ -58,10 +61,21 @@ namespace Game
 
 	void InitSounds() 
 	{
-		collisionWave1 = LoadSound("assets/sound/collisionSound01.wav");
-		collisionWave2 = LoadSound("assets/sound/collisionSound02.wav");
+		collisionWave1 = LoadSound("assets/sounds/collisionSound01.wav");
+		collisionWave2 = LoadSound("assets/sounds/collisionSound02.wav");
 	}
 
+	void MuteSounds()
+	{
+		if (IsKeyDown(KEY_M))
+		{
+			SetMasterVolume(0);
+		}
+		if (IsKeyDown(KEY_T))
+		{
+			SetMasterVolume(1);
+		}
+	}
 
 	void DrawTexts()
 	{
@@ -222,6 +236,7 @@ namespace Game
 		CheckPlayerWin();
 		LimitMove();
 		PlayMusicStream(backgroundMusic);
+		MuteSounds();
 	}
 
 	void Draw()

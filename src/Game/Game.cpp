@@ -17,8 +17,6 @@ namespace Game
 	void GameLoop()
 	{
 		InitWindowArkanoid();
-		InitAudioDevice();
-
 		while (!WindowShouldClose())
 		{
 			BeginDrawing();
@@ -50,8 +48,7 @@ namespace Game
 			}
 			EndDrawing();
 		}
-		UnloadSound(collisionWave1);
-		UnloadMusicStream(backgroundMusic);
+		CloseAudioDevice();
 		CloseWindow();
 	}
 }

@@ -13,7 +13,7 @@ namespace Game
 
 	void DrawTextCredits()
 	{
-		DrawText("Credits", 300, 160, 20, RAYWHITE);
+		DrawText("Credits", 300, 160, 20, GREEN);
 
 		DrawText("Audio & Sounds: Lautaro Brucart", 300, 180, 20, RAYWHITE);
 

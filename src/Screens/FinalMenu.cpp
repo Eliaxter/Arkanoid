@@ -50,11 +50,15 @@ namespace Game
 
 	void FinalMenu()
 	{
-		UnloadMusicStream(backgroundMusic);
-		UnloadSound(collisionWave1);
-		UnloadSound(collisionWave2);
+		if (IsMusicPlaying)
+		{
+			StopMusicStream(backgroundMusic);
+		}
 		DrawWindowFinalMenu();
 		DrawTextFinalMenu();
 		InputFinalMenu();
+		UnloadMusicStream(backgroundMusic);
+		UnloadSound(collisionWave1);
+		UnloadSound(collisionWave2);
 	}
 }
