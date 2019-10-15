@@ -9,6 +9,7 @@
 #include "Credits.h"
 #include "Player.h"
 #include "Ball.h"
+#include "Global.h"
 
 namespace Game
 {
@@ -33,6 +34,7 @@ namespace Game
 			{
 				Update();
 				Draw();
+				UnloadMusicStream(backgroundMusic);
 			}
 			if (state == GameState::MenuFinal)
 			{

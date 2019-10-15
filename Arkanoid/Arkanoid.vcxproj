@@ -122,7 +122,8 @@
       </EntryPointSymbol>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\lib\raylib.dll $(OutDir)</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -153,7 +154,8 @@
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\lib\raylib.dll $(OutDir)</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

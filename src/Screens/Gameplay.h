@@ -19,7 +19,7 @@ namespace Game
 	extern bool previusFrameCollision;
 	extern int lastCollisionFrames;
 
-	extern Music backgroundMusic;
+	//extern Music backgroundMusic;
 	extern Sound collisionWave1;
 	extern Sound collisionWave2;
 
@@ -36,7 +36,6 @@ namespace Game
 	void DrawBricks();
 	void InitGame();
 	void MovePlayer();
-	void AngleOfBall();
 	void CheckPlayerWin();
 	void ResetPoints();
 	void ResetTries();

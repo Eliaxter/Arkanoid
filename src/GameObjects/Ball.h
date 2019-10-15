@@ -5,9 +5,9 @@
 
 namespace Game
 {
-	extern const int posInitialBallX;
-	extern const int posInitialBallY;
-	extern const int ballRadius;
+	extern const float posInitialBallY;
+	extern const float posInitialBallX;
+	extern const float ballRadius;
 
 	extern Vector2 ballPosition;
 	extern Vector2 speedBall;

@@ -50,7 +50,7 @@ namespace Game
 
 	void InitWindowArkanoid()
 	{
-		InitWindow(screenWidth, screenHeight, "Arkanoid Elias");
+		InitWindow(static_cast<int>(screenWidth), static_cast<int>(screenHeight), "Arkanoid Elias");
 		InitAudioDevice();
 	}
 
@@ -112,7 +112,7 @@ namespace Game
 			startKey = false;
 			ballOnRectangle = true;
 			ballPosition.x = player1.x;
-			ballPosition.y = player1.y - player1.height + 10.0f;
+			ballPosition.y = player1.y - player1.height + 20.0f;
 			if (tries <= loseTries)
 			{
 				state = GameState::MenuFinal;
@@ -151,23 +151,23 @@ namespace Game
 		{
 			if (bricks[i].life == firstLife)
 			{
-				DrawRectangle(bricks[i].rect.x, bricks[i].rect.y, bricks[i].rect.width, bricks[i].rect.height, WHITE);
+				DrawRectangle(static_cast<int>(bricks[i].rect.x), static_cast<int>(bricks[i].rect.y), static_cast<int>(bricks[i].rect.width), static_cast<int>(bricks[i].rect.height), WHITE);
 			}
 			if (bricks[i].life == secondLife)
 			{
-				DrawRectangle(bricks[i].rect.x, bricks[i].rect.y, bricks[i].rect.width, bricks[i].rect.height, GREEN);
+				DrawRectangle(static_cast<int>(bricks[i].rect.x), static_cast<int>(bricks[i].rect.y), static_cast<int>(bricks[i].rect.width), static_cast<int>(bricks[i].rect.height), GREEN);
 			}
 			if (bricks[i].life == thirdLife)
 			{
-				DrawRectangle(bricks[i].rect.x, bricks[i].rect.y, bricks[i].rect.width, bricks[i].rect.height, PURPLE);
+				DrawRectangle(static_cast<int>(bricks[i].rect.x), static_cast<int>(bricks[i].rect.y), static_cast<int>(bricks[i].rect.width), static_cast<int>(bricks[i].rect.height), PURPLE);
 			}
 			if (bricks[i].life == fourthLife)
 			{
-				DrawRectangle(bricks[i].rect.x, bricks[i].rect.y, bricks[i].rect.width, bricks[i].rect.height, GRAY);
+				DrawRectangle(static_cast<int>(bricks[i].rect.x), static_cast<int>(bricks[i].rect.y), static_cast<int>(bricks[i].rect.width), static_cast<int>(bricks[i].rect.height), GRAY);
 			}
 			if (bricks[i].life == fifthLife)
 			{
-				DrawRectangle(bricks[i].rect.x, bricks[i].rect.y, bricks[i].rect.width, bricks[i].rect.height, BLUE);
+				DrawRectangle(static_cast<int>(bricks[i].rect.x), static_cast<int>(bricks[i].rect.y), static_cast<int>(bricks[i].rect.width), static_cast<int>(bricks[i].rect.height), BLUE);
 			}
 		}
 	}
@@ -182,11 +182,6 @@ namespace Game
 		{
 			player1.x -= playerSpeed * GetFrameTime();
 		}
-	}
-
-	void AngleOfBall()
-	{
-		//ballPosition.x += speedBall.x * GetFrameTime();
 	}
 
 	void CheckPlayerWin()
@@ -211,6 +206,7 @@ namespace Game
 	{
 		InitMusic();
 		InitSounds();
+		PlayMusicStream(backgroundMusic);
 		InitPlayer();
 		InitBall();
 		InitBricks();
@@ -228,12 +224,11 @@ namespace Game
 		PosBallOnRectangle();
 		StartGame();
 		MovePlayer();
-		AngleOfBall();
 		WindowCollisions();
 		ResetBallOnRectangle();
 		CheckCollisionBallBricks();
 		CollisionBallWithPlayer();
-		PlayMusicStream(backgroundMusic);
+		UpdateMusicStream(backgroundMusic);
 		CheckPlayerWin();
 		LimitMove();
 		MuteSounds();

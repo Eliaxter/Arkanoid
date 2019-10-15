@@ -1,7 +1,11 @@
 #include "Global.h"
 
+#include "raylib.h"
+
 namespace Game
 {
-	const int screenWidth = 800;
-	const int screenHeight = 450;
+	const float screenWidth = 800;
+	const float screenHeight = 450;
+
+	Music backgroundMusic = LoadMusicStream("assets/music/backgroundMusic.ogg");
 }

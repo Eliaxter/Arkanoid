@@ -58,7 +58,6 @@ namespace Game
 		DrawWindowFinalMenu();
 		DrawTextFinalMenu();
 		InputFinalMenu();
-		UnloadMusicStream(backgroundMusic);
 		UnloadSound(collisionWave1);
 		UnloadSound(collisionWave2);
 	}
