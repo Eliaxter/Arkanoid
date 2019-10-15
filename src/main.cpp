@@ -1,7 +1,8 @@
 #include "Game.h"
 using namespace Game;
 
-void main()
+int main()
 {
 	Game::GameLoop();
+	return 0;
 }

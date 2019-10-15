@@ -32,7 +32,7 @@ namespace Game
 	static int fourthLife = 4;
 	static int fifthLife = 5;
 
-	static float playerSpeed = 750.0f;
+	static float playerSpeed = 700.0f;
 	static int halfPlayer = 75;
 
 	static int resetVariable = 0;
