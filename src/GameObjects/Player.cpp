@@ -32,7 +32,7 @@ namespace Game
 
 	void DrawPlayer()
 	{
-		DrawRectangle(player1.x, player1.y, player1.width, player1.height, WHITE);
+		DrawRectangle(static_cast<int>(player1.x), static_cast<int>(player1.y), static_cast<int>(player1.width), static_cast<int>(player1.height), WHITE);
 	}
 
 	void CollisionBallWithPlayer()

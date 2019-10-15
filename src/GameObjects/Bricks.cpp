@@ -47,7 +47,7 @@ namespace Game
 	{
 		for (int i = 0; i < oneBrick; i++)
 		{
-			DrawRectangle(bricks[i].rect.x, bricks[i].rect.y, bricks[i].rect.width, bricks[i].rect.height, WHITE);
+			DrawRectangle(static_cast<int>(bricks[i].rect.x), static_cast<int>(bricks[i].rect.y), static_cast<int>(bricks[i].rect.width), static_cast<int>(bricks[i].rect.height), WHITE);
 		}
 	}
 }
