@@ -34,7 +34,6 @@ namespace Game
 			{
 				Update();
 				Draw();
-				UnloadMusicStream(backgroundMusic);
 			}
 			if (state == GameState::MenuFinal)
 			{
@@ -50,6 +49,9 @@ namespace Game
 			}
 			EndDrawing();
 		}
+		UnloadMusicStream(backgroundMusic);
+		UnloadSound(collisionWave1);
+		UnloadSound(collisionWave2);
 		CloseAudioDevice();
 		CloseWindow();
 	}

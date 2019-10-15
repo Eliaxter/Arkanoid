@@ -7,6 +7,21 @@
 
 namespace Game
 {
+	static int fontSize1 = 20;
+	static int fontSize2 = 30;
+
+	static int coordTxtX = 300;
+	static int coordTxtY = 140;
+
+	static int coordTxt2X = 200;
+	static int coordTxt2Y = 200;
+
+	static int coordTxt3X = 200;
+	static int coordTxt3Y = 240;
+
+	static int coordTxt4X = 200;
+	static int coordTxt4Y = 280;
+
 	void DrawWindowMenu()
 	{
 		ClearBackground(BLACK);
@@ -14,10 +29,10 @@ namespace Game
 
 	void DrawTextMenu()
 	{
-		DrawText("Elias Arkanoid!", 300, 140, 30, GRAY);
-		DrawText("To Play the game, press the key: ENTER", 200, 200, 20, RAYWHITE);
-		DrawText("How To play, press the key: H", 200, 240, 20, RAYWHITE);
-		DrawText("To Exit, press the key: ESCAPE", 200, 280, 20, RAYWHITE);
+		DrawText("Elias Arkanoid!", coordTxtX, coordTxtY, fontSize2, GRAY);
+		DrawText("To Play the game, press the key: ENTER", coordTxt2X, coordTxt2Y, fontSize1, RAYWHITE);
+		DrawText("How To play, press the key: H", coordTxt3X, coordTxt3Y, fontSize1, RAYWHITE);
+		DrawText("To Exit, press the key: ESCAPE", coordTxt4X, coordTxt4Y, fontSize1, RAYWHITE);
 	}
 
 	void InputMenu()

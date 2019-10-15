@@ -7,5 +7,5 @@ namespace Game
 	const float screenWidth = 800;
 	const float screenHeight = 450;
 
-	Music backgroundMusic = LoadMusicStream("assets/music/backgroundMusic.ogg");
+	Music backgroundMusic;
 }

@@ -18,6 +18,7 @@ namespace Game
 	const int minScreenHeight = 0;
 
 	static float initialSpeed = 500.0f;
+	static float negativeSpeed = -1.0f;
 
 	bool previusFrameCollisionBall = false;
 	int lastCollisionFramesBall = 0;
@@ -55,7 +56,7 @@ namespace Game
 		{
 			if (!previusFrameCollisionBall) 
 			{
-				speedBall.x *= -1.0f;
+				speedBall.x *= negativeSpeed;
 				ballPosition.x = screenWidth - ballRadius;
 			}
 		}
@@ -63,13 +64,13 @@ namespace Game
 		{
 			if (!previusFrameCollisionBall)
 			{
-				speedBall.x *= -1.0f;
+				speedBall.x *= negativeSpeed;
 				ballPosition.x = ballRadius;
 			}
 		}
 		if (ballPosition.y < ballRadius)
 		{
-			speedBall.y *= -1.0f;
+			speedBall.y *= negativeSpeed;
 			ballPosition.y = ballRadius;
 		}
 

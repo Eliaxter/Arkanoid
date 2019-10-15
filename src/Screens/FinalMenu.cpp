@@ -7,6 +7,20 @@
 
 namespace Game
 {
+	static int fontSize = 20;
+
+	static int coordTxtX = 300;
+	static int coordTxtY = 160;
+
+	static int coordTxt2X = 300;
+	static int coordTxt2Y = 200;
+
+	static int coordTxt3X = 300;
+	static int coordTxt3Y = 220;
+
+	static int coordTxt4X = 300;
+	static int coordTxt4Y = 240;
+
 	void DrawWindowFinalMenu()
 	{
 		ClearBackground(BLACK);
@@ -14,13 +28,13 @@ namespace Game
 
 	void DrawTextFinalMenu()
 	{
-		DrawText("End of Game!", 300, 160, 20, RAYWHITE);
+		DrawText("End of Game!", coordTxtX, coordTxtY, fontSize, RAYWHITE);
 
-		DrawText("Return to Main Menu: M", 300, 220, 20, RAYWHITE);
+		DrawText("Play Again: Y/N", coordTxt2X, coordTxt2Y, fontSize, RAYWHITE);
 
-		DrawText("Play Again: Y/N", 300, 200, 20, RAYWHITE);
+		DrawText("Return to Main Menu: M", coordTxt3X, coordTxt3Y, fontSize, RAYWHITE);
 
-		DrawText("Credits: C", 300, 240, 20, RAYWHITE);
+		DrawText("Credits: C", coordTxt4X, coordTxt4Y, fontSize, RAYWHITE);
 	}
 
 	void InputFinalMenu()
@@ -50,15 +64,8 @@ namespace Game
 
 	void FinalMenu()
 	{
-		/*
-		if (IsMusicPlaying)
-		{
-			StopMusicStream(backgroundMusic);
-		}*/
 		DrawWindowFinalMenu();
 		DrawTextFinalMenu();
 		InputFinalMenu();
-		UnloadSound(collisionWave1);
-		UnloadSound(collisionWave2);
 	}
 }

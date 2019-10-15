@@ -15,6 +15,8 @@ namespace Game
 	int lastCollisionFrames = 0;
 
 	static float negativeSpeed = -1.0f;
+	
+	static float limitInX = 1.0f;
 
 	void InitPlayer()
 	{
@@ -65,9 +67,9 @@ namespace Game
 		{
 			player1.x = screenWidth - player1.width;
 		}
-		if (player1.x <= 0)
+		if (player1.x <= minScreenHeight)
 		{
-			player1.x = 1;
+			player1.x = limitInX;
 		}
 	}
 }

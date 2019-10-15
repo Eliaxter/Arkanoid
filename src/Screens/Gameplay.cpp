@@ -39,7 +39,16 @@ namespace Game
 
 	static bool isAudioPlaying = true;
 
-	Music backgroundMusic;
+	static float incrementHeight = 10.0f;
+
+	static int fontSize = 30;
+
+	static int coordTxtX = 10;
+	static int coordTxtY = 10;
+
+	static int coordTxt2X = 650;
+	static int coordTxt2Y = 20;
+
 	Sound collisionWave1;
 	Sound collisionWave2;
 
@@ -79,8 +88,8 @@ namespace Game
 
 	void DrawTexts()
 	{
-		DrawText(TextFormat("Tries: %i", tries), 10, 10, 30, WHITE);
-		DrawText(TextFormat("Points: %i", playerPoints), 650, 20, 30, WHITE);
+		DrawText(TextFormat("Tries: %i", tries), coordTxtX, coordTxtY, fontSize, WHITE);
+		DrawText(TextFormat("Points: %i", playerPoints), coordTxt2X, coordTxt2Y, fontSize, WHITE);
 	}
 
 	void PosBallOnRectangle()
@@ -112,7 +121,7 @@ namespace Game
 			startKey = false;
 			ballOnRectangle = true;
 			ballPosition.x = player1.x;
-			ballPosition.y = player1.y - player1.height + 20.0f;
+			ballPosition.y = player1.y - player1.height + incrementHeight;
 			if (tries <= loseTries)
 			{
 				state = GameState::MenuFinal;

@@ -19,7 +19,6 @@ namespace Game
 	extern bool previusFrameCollision;
 	extern int lastCollisionFrames;
 
-	//extern Music backgroundMusic;
 	extern Sound collisionWave1;
 	extern Sound collisionWave2;
 
