@@ -39,12 +39,18 @@ namespace Game
 
 	static bool isAudioPlaying = true;
 
-	static float incrementHeight = 10.0f;
+	static float incrementHeight = 5.0f;
 
 	static int fontSize = 30;
 
 	static int coordTxtX = 10;
 	static int coordTxtY = 10;
+
+	static int coordTxt4X = 450;
+	static int coordTxt4Y = 10;
+
+	static int coordTxt3X = 200;
+	static int coordTxt3Y = 10;
 
 	static int coordTxt2X = 650;
 	static int coordTxt2Y = 20;
@@ -90,6 +96,8 @@ namespace Game
 	{
 		DrawText(TextFormat("Tries: %i", tries), coordTxtX, coordTxtY, fontSize, WHITE);
 		DrawText(TextFormat("Points: %i", playerPoints), coordTxt2X, coordTxt2Y, fontSize, WHITE);
+		DrawText("Mute Audio: M", coordTxt3X, coordTxt3Y, fontSize, WHITE);
+		DrawText("Unmute Audio: T", coordTxt4X, coordTxt4Y, fontSize, WHITE);
 	}
 
 	void PosBallOnRectangle()

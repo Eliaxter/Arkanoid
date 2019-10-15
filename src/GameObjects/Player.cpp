@@ -56,7 +56,6 @@ namespace Game
 					ballPosition.y = player1.y - ballRadius;
 					PlaySound(collisionWave2);
 				}
-				//speedBall.x = (ballPosition.x - player1.x - player1.width / 2) / (player1.width / 2) * 5;
 			}
 		}
 	}

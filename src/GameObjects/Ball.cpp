@@ -8,7 +8,7 @@
 namespace Game
 {
 	const float posInitialBallX = screenWidth / 2.0f;
-	const float posInitialBallY = 440.0f;
+	const float posInitialBallY = 415.0f;
 	const float ballRadius = 10.0f;
 
 	Vector2 ballPosition;
