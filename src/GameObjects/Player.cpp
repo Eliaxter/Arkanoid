@@ -18,6 +18,9 @@ namespace Game
 	
 	static float limitInX = 1.0f;
 
+	static float ballDirection = 500.0f;
+
+
 	void InitPlayer()
 	{
 		player1.x = posInitialPlayer1X;
@@ -53,6 +56,7 @@ namespace Game
 				if (!previusFrameCollisionPlayer)
 				{
 					speedBall.y *= negativeSpeed;
+					speedBall.x = (ballPosition.x - player1.x - player1.width / 2.0f) / (player1.width / 2.0f) * ballDirection;
 					ballPosition.y = player1.y - ballRadius;
 					PlaySound(collisionWave2);
 				}

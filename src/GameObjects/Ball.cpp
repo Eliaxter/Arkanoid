@@ -17,7 +17,8 @@ namespace Game
 	const int minScreenWidth = 0;
 	const int minScreenHeight = 0;
 
-	static float initialSpeed = 500.0f;
+	static float initialSpeedX = 0.0f;
+	static float initialSpeedY = 500.0f;
 	static float negativeSpeed = -1.0f;
 
 	bool previusFrameCollisionBall = false;
@@ -31,8 +32,8 @@ namespace Game
 
 	void InitSpeedBall()
 	{
-		speedBall.x = initialSpeed;
-		speedBall.y = initialSpeed;
+		speedBall.x = initialSpeedX;
+		speedBall.y = initialSpeedY;
 	}
 
 	void DrawBall()
