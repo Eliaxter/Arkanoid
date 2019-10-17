@@ -123,8 +123,7 @@
       </EntryPointSymbol>
     </Link>
     <PostBuildEvent>
-      <Command>$(ProjectDir)execute.bat "$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\lib\raylib.dll" "$(OutDir)"
-$(ProjectDir)execute.bat "$(SolutionDir)res\assets" "$(OutDir)"</Command>
+      <Command>$(ProjectDir)execute.bat "$(SolutionDir)lib\raylib-2.5.0-Win32-msvc15\lib\raylib.dll" "$(OutDir)" "$(SolutionDir)res\assets"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
