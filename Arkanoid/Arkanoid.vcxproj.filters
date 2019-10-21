@@ -1,81 +1,84 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="CodeFiles">
-      <UniqueIdentifier>{a6ac0d03-a9da-4ff7-a7c1-8fa775d286cd}</UniqueIdentifier>
+    <Filter Include="src">
+      <UniqueIdentifier>{794cc614-3ca3-4cc2-9bf4-2df35d80f81f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Headers">
-      <UniqueIdentifier>{d8fbdacf-716d-4218-847a-f788e2d62529}</UniqueIdentifier>
+    <Filter Include="src\Screens">
+      <UniqueIdentifier>{345dcf09-cb9b-4945-9018-4a845b4b36b3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SourceCode">
-      <UniqueIdentifier>{a1573d0b-1154-4c99-82ab-4a4391db1e9a}</UniqueIdentifier>
+    <Filter Include="src\GameObjects">
+      <UniqueIdentifier>{c0976364-c3d4-47d8-b609-6e844997d81e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Game">
+      <UniqueIdentifier>{477ce5e1-8d01-41af-ad3c-9b3f3233e404}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
-      <Filter>SourceCode</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Game\Game.cpp">
-      <Filter>CodeFiles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Game\Global.cpp">
-      <Filter>CodeFiles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\GameObjects\Ball.cpp">
-      <Filter>CodeFiles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\GameObjects\Bricks.cpp">
-      <Filter>CodeFiles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\GameObjects\Player.cpp">
-      <Filter>CodeFiles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Screens\Gameplay.cpp">
-      <Filter>CodeFiles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Screens\Menu.cpp">
-      <Filter>CodeFiles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Screens\FinalMenu.cpp">
-      <Filter>CodeFiles</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Screens\Credits.cpp">
-      <Filter>CodeFiles</Filter>
+      <Filter>src\Screens</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Screens\Feedback.cpp">
-      <Filter>CodeFiles</Filter>
+      <Filter>src\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Screens\FinalMenu.cpp">
+      <Filter>src\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Screens\Gameplay.cpp">
+      <Filter>src\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Screens\Menu.cpp">
+      <Filter>src\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Game.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Global.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameObjects\Ball.cpp">
+      <Filter>src\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameObjects\Bricks.cpp">
+      <Filter>src\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameObjects\Player.cpp">
+      <Filter>src\GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\Game\Game.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Game\Global.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\GameObjects\Ball.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\GameObjects\Bricks.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\GameObjects\Player.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Screens\Gameplay.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Screens\Menu.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Screens\FinalMenu.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\Screens\Credits.h">
-      <Filter>Headers</Filter>
+      <Filter>src\Screens</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Screens\Feedback.h">
-      <Filter>Headers</Filter>
+      <Filter>src\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Screens\FinalMenu.h">
+      <Filter>src\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Screens\Gameplay.h">
+      <Filter>src\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Screens\Menu.h">
+      <Filter>src\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Game.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Global.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameObjects\Ball.h">
+      <Filter>src\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameObjects\Bricks.h">
+      <Filter>src\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameObjects\Player.h">
+      <Filter>src\GameObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
