@@ -67,7 +67,7 @@ namespace Game
 
 	void InitWindowArkanoid()
 	{
-		InitWindow(static_cast<int>(screenWidth), static_cast<int>(screenHeight), "Arkanoid Elias");
+		InitWindow(static_cast<int>(screenWidth), static_cast<int>(screenHeight), "Arkanoid V1.0");
 		InitAudioDevice();
 	}
 
