@@ -203,6 +203,14 @@ namespace Game
 		}
 	}
 
+	void BackMenu()
+	{
+		if (IsKeyDown(KEY_ESCAPE))
+		{
+			state = GameState::StartMenu;
+		}
+	}
+
 	void CheckPlayerWin()
 	{
 		if (bricksDestroyed >= brickSize)
@@ -243,6 +251,7 @@ namespace Game
 		PosBallOnRectangle();
 		StartGame();
 		MovePlayer();
+		BackMenu();
 		WindowCollisions();
 		ResetBallOnRectangle();
 		CheckCollisionBallBricks();

@@ -3,10 +3,9 @@
 
 namespace Game
 {
-	void DrawWindowFeedBack();
 	void DrawTextFeedBack();
 	void InputFeedBack();
-	void FeedBack();
+	void HowToPlay();
 }
 
 #endif

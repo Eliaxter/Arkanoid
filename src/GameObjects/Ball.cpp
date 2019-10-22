@@ -21,7 +21,7 @@ namespace Game
 	static float initialSpeedY = 500.0f;
 	static float negativeSpeed = -1.0f;
 
-	bool previusFrameCollisionBall = false;
+	bool alreadyCollisionBall = false;
 	int lastCollisionFramesBall = 0;
 
 	void InitBall()
@@ -43,19 +43,19 @@ namespace Game
 
 	void WindowCollisions()
 	{
-		if (previusFrameCollisionBall)
+		if (alreadyCollisionBall)
 		{
 			lastCollisionFramesBall++;
 			if (lastCollisionFramesBall >= dontCheckCollisionFrames)
 			{
-				previusFrameCollision = 0;
-				lastCollisionFramesBall = false;
+				previusFrameCollision = false;
+				lastCollisionFramesBall = 15;
 			}
 		}
 	
 		if ((ballPosition.x + ballRadius) >= screenWidth)
 		{
-			if (!previusFrameCollisionBall) 
+			if (!alreadyCollisionBall)
 			{
 				speedBall.x *= negativeSpeed;
 				ballPosition.x = screenWidth - ballRadius;
@@ -63,7 +63,7 @@ namespace Game
 		}
 		if ((ballPosition.x - ballRadius) <= minScreenWidth)
 		{
-			if (!previusFrameCollisionBall)
+			if (!alreadyCollisionBall)
 			{
 				speedBall.x *= negativeSpeed;
 				ballPosition.x = ballRadius;

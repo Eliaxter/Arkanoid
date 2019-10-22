@@ -6,7 +6,7 @@ namespace Game
 	enum GameState
 	{
 		StartMenu,
-		Feedback,
+		Instructions,
 		Game,
 		MenuFinal,
 		Credits,

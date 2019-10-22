@@ -7,8 +7,6 @@
 #include "Gameplay.h"
 #include "FinalMenu.h"
 #include "Credits.h"
-#include "Player.h"
-#include "Ball.h"
 #include "Global.h"
 
 namespace Game
@@ -26,9 +24,9 @@ namespace Game
 			{
 				Menu();
 			}
-			if (state == GameState::Feedback)
+			if (state == GameState::Instructions)
 			{
-				FeedBack();
+				HowToPlay();
 			}
 			if (state == GameState::Game)
 			{

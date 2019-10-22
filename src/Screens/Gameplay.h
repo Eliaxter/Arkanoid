@@ -35,6 +35,7 @@ namespace Game
 	void DrawBricks();
 	void InitGame();
 	void MovePlayer();
+	void BackMenu();
 	void CheckPlayerWin();
 	void ResetPoints();
 	void ResetTries();

@@ -26,11 +26,6 @@ namespace Game
 	static int coordTxt5X = 680;
 	static int coordTxt5Y = 420;
 
-	void DrawWindowFeedBack()
-	{
-		ClearBackground(BLACK);
-	}
-
 	void DrawTextFeedBack()
 	{
 		DrawText("How To play", coordTxtX, coordTxtY, fontSize3, GRAY);
@@ -53,9 +48,9 @@ namespace Game
 		}
 	}
 
-	void FeedBack()
+	void HowToPlay()
 	{
-		DrawWindowFeedBack();
+		ClearBackground(BLACK);
 		DrawTextFeedBack();
 		InputFeedBack();
 	}

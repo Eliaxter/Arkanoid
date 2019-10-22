@@ -46,7 +46,7 @@ namespace Game
 			if (lastCollisionFramesPlayer >= dontCheckCollisionFrames)
 			{
 				previusFrameCollision = 0;
-				lastCollisionFramesPlayer = false;
+				lastCollisionFramesPlayer = 15;
 			}
 		}
 		if ((ballPosition.y + ballRadius) >= (screenHeight - player1.height))
